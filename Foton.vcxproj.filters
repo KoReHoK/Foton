@@ -88,12 +88,6 @@
     <Filter Include="Source Files\Tab3\VisibleCamera">
       <UniqueIdentifier>{814e73ac-bc16-45d9-978d-1e931d1b5faa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Tab3\IKCamera">
-      <UniqueIdentifier>{8e494685-c383-4109-ae0f-64f701445a2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab3\IKCamera">
-      <UniqueIdentifier>{3636ae21-fe4e-4dbd-8f1c-6f154047d329}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Tab3\ButtonsPult">
       <UniqueIdentifier>{caa058cc-b767-40f2-9c7d-37b8ffbaab0a}</UniqueIdentifier>
     </Filter>
@@ -240,24 +234,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Tab3.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="VisibleCamera.cpp">
-      <Filter>Source Files\Tab3\VisibleCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_VisibleCamera.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_VisibleCamera.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="IKCamera.cpp">
-      <Filter>Source Files\Tab3\IKCamera</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_IKCamera.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_IKCamera.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="ButtonsPult.cpp">
       <Filter>Source Files\Tab3\ButtonsPult</Filter>
     </ClCompile>
@@ -287,6 +263,15 @@
     </ClCompile>
     <ClCompile Include="FotonMainWindowUi.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CameraSettings.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CameraSettings.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSettings.cpp">
+      <Filter>Source Files\Tab3\VisibleCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,12 +314,6 @@
     <CustomBuild Include="Tab3.h">
       <Filter>Header Files\Tab3</Filter>
     </CustomBuild>
-    <CustomBuild Include="VisibleCamera.h">
-      <Filter>Header Files\Tab3\VisibleCamera</Filter>
-    </CustomBuild>
-    <CustomBuild Include="IKCamera.h">
-      <Filter>Header Files\Tab3\IKCamera</Filter>
-    </CustomBuild>
     <CustomBuild Include="ButtonsPult.h">
       <Filter>Header Files\Tab3\ButtonsPult</Filter>
     </CustomBuild>
@@ -343,6 +322,9 @@
     </CustomBuild>
     <CustomBuild Include="ElseSettings.h">
       <Filter>Header Files\Tab3\ElseSettings</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CameraSettings.h">
+      <Filter>Header Files\Tab3\VisibleCamera</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

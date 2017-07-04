@@ -23,7 +23,7 @@ NavigationBar::NavigationBar(QWidget *parent) : QWidget(parent)
 	setStyleSheet("QPushButton{"
 								"border: 0px solid black;"
 								"background: rgb(200,200,200);}");
-	isExpand = true;
+	isExpand = false;
 	maxTextWidth = 0;
 }
 
