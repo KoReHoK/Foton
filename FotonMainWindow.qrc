@@ -1,4 +1,28 @@
 <RCC>
-    <qresource prefix="FotonMainWindow">
+    <qresource prefix="/icons">
+        <file>Resources/icons/createFile.png</file>
+        <file>Resources/icons/endControl.png</file>
+        <file>Resources/icons/etiketka.png</file>
+        <file>Resources/icons/expand.png</file>
+        <file>Resources/icons/fast.png</file>
+        <file>Resources/icons/genReport.png</file>
+        <file>Resources/icons/handLayer.png</file>
+        <file>Resources/icons/inversion.png</file>
+        <file>Resources/icons/jerk.png</file>
+        <file>Resources/icons/layer.png</file>
+        <file>Resources/icons/liftDown.png</file>
+        <file>Resources/icons/liftUp.png</file>
+        <file>Resources/icons/lightning.png</file>
+        <file>Resources/icons/next.png</file>
+        <file>Resources/icons/norm.png</file>
+        <file>Resources/icons/openFile.png</file>
+        <file>Resources/icons/panorama.png</file>
+        <file>Resources/icons/prev.png</file>
+        <file>Resources/icons/saveFile.png</file>
+        <file>Resources/icons/saveImage.png</file>
+        <file>Resources/icons/slouly.png</file>
+        <file>Resources/icons/toFirst.png</file>
+        <file>Resources/icons/wizard.png</file>
+        <file>Resources/icons/zone.png</file>
     </qresource>
 </RCC>

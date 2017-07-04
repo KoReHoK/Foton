@@ -14,10 +14,6 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
@@ -38,6 +34,84 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Header Files\Tab1">
+      <UniqueIdentifier>{533323b7-16bb-48fb-b8ed-5c937bc2ca36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab1">
+      <UniqueIdentifier>{c7dd8ded-9f79-4102-8b8c-f499255a4715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab1\NavigationBar">
+      <UniqueIdentifier>{8c962439-1ade-4a96-8d22-c1e25879a6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab1\ViewWidget">
+      <UniqueIdentifier>{a913b2b9-5489-459a-80e5-2b4919c2f8b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab1\CircumWidget">
+      <UniqueIdentifier>{4d654de0-3062-4a70-a590-360345c57c0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab1\NavigationBar">
+      <UniqueIdentifier>{3e541d6e-d48f-4761-a587-15d7c6fa7879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab1\CircumWidget">
+      <UniqueIdentifier>{4e680054-c289-4adb-8e35-525562f2723f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab1\ViewWidget">
+      <UniqueIdentifier>{8538849d-6e33-4997-9581-fb7fbb110acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab1\ImageFrame">
+      <UniqueIdentifier>{70c3fa13-5897-4ff2-9d83-6fce66330910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab1\ImageFrame">
+      <UniqueIdentifier>{f053ccb8-ead9-444e-a8cb-218bb2066984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab2">
+      <UniqueIdentifier>{451663df-f676-4d93-ad5f-1561985e6c83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab2">
+      <UniqueIdentifier>{798fe4fb-7122-4a28-acf7-8a1a9b0686a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab2\SettingsWidget">
+      <UniqueIdentifier>{fc9848ef-88bd-4b10-8204-328c601cf045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab2\SettingsWidget">
+      <UniqueIdentifier>{96bc0700-7ac2-4518-97b1-a12bcbb2cb09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3">
+      <UniqueIdentifier>{5827bb15-1c6b-4610-bf31-66a64b1cd8fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3">
+      <UniqueIdentifier>{892457c3-2254-4c07-a590-1756040d1bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3\VisibleCamera">
+      <UniqueIdentifier>{9ea14818-bbea-4a1c-91d9-6cb34a7c88cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3\VisibleCamera">
+      <UniqueIdentifier>{814e73ac-bc16-45d9-978d-1e931d1b5faa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3\IKCamera">
+      <UniqueIdentifier>{8e494685-c383-4109-ae0f-64f701445a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3\IKCamera">
+      <UniqueIdentifier>{3636ae21-fe4e-4dbd-8f1c-6f154047d329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3\ButtonsPult">
+      <UniqueIdentifier>{caa058cc-b767-40f2-9c7d-37b8ffbaab0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3\ButtonsPult">
+      <UniqueIdentifier>{c249e8cb-da7d-41ff-931d-8696fcbdb361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3\HotButtons">
+      <UniqueIdentifier>{2a38a408-daa8-4571-aab9-20d8bd14af93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3\HotButtons">
+      <UniqueIdentifier>{8cbd28db-9cf9-4bf2-8f1e-30889673338e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tab3\ElseSettings">
+      <UniqueIdentifier>{8b218d79-55c3-4af6-b01e-cec0e45d6b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tab3\ElseSettings">
+      <UniqueIdentifier>{1bdb6521-8f07-4b65-a629-b361021d7802}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,21 +129,252 @@
     <ClCompile Include="GeneratedFiles\qrc_FotonMainWindow.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab1.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab1.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_navigationbar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_navigationbar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Tab1.cpp">
+      <Filter>Source Files\Tab1</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CircumWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CircumWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="navigationbar.cpp">
+      <Filter>Source Files\Tab1\NavigationBar</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewWidget.cpp">
+      <Filter>Source Files\Tab1\ViewWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraGroup.cpp">
+      <Filter>Source Files\Tab1\ViewWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="LensesGroup.cpp">
+      <Filter>Source Files\Tab1\ViewWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="CircumWidget.cpp">
+      <Filter>Source Files\Tab1\CircumWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupButtons.cpp">
+      <Filter>Source Files\Tab1\CircumWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="QCameraFrame.cpp">
+      <Filter>Source Files\Tab1\ImageFrame</Filter>
+    </ClCompile>
+    <ClCompile Include="Tab2.cpp">
+      <Filter>Source Files\Tab2</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab2.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab2.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SettingsWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="LegendWidget.cpp">
+      <Filter>Source Files\Tab2</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_LegendWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_LegendWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SettingsWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsWidget.cpp">
+      <Filter>Source Files\Tab2\SettingsWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSizeOfPlate.cpp">
+      <Filter>Source Files\Tab2\SettingsWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfPlate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfPlate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupSizeOfCrystal.cpp">
+      <Filter>Source Files\Tab2\SettingsWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfCrystal.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfCrystal.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="OffsetGroup.cpp">
+      <Filter>Source Files\Tab2\SettingsWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_OffsetGroup.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_OffsetGroup.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Tab3.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab3.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab3.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="VisibleCamera.cpp">
+      <Filter>Source Files\Tab3\VisibleCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VisibleCamera.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VisibleCamera.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="IKCamera.cpp">
+      <Filter>Source Files\Tab3\IKCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_IKCamera.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_IKCamera.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonsPult.cpp">
+      <Filter>Source Files\Tab3\ButtonsPult</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ButtonsPult.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="HotButtons.cpp">
+      <Filter>Source Files\Tab3\HotButtons</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_HotButtons.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="ElseSettings.cpp">
+      <Filter>Source Files\Tab3\ElseSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ElseSettings.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ElseSettings.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_HotButtons.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ButtonsPult.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="FotonMainWindowUi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="FotonMainWindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="FotonMainWindow.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="FotonMainWindow.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Tab1.h">
+      <Filter>Header Files\Tab1</Filter>
+    </CustomBuild>
+    <CustomBuild Include="navigationbar.h">
+      <Filter>Header Files\Tab1\NavigationBar</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CircumWidget.h">
+      <Filter>Header Files\Tab1\CircumWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ViewWidget.h">
+      <Filter>Header Files\Tab1\ViewWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Tab2.h">
+      <Filter>Header Files\Tab2</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LegendWidget.h">
+      <Filter>Header Files\Tab2</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SettingsWidget.h">
+      <Filter>Header Files\Tab2\SettingsWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GroupSizeOfPlate.h">
+      <Filter>Header Files\Tab2\SettingsWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GroupSizeOfCrystal.h">
+      <Filter>Header Files\Tab2\SettingsWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="OffsetGroup.h">
+      <Filter>Header Files\Tab2\SettingsWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Tab3.h">
+      <Filter>Header Files\Tab3</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VisibleCamera.h">
+      <Filter>Header Files\Tab3\VisibleCamera</Filter>
+    </CustomBuild>
+    <CustomBuild Include="IKCamera.h">
+      <Filter>Header Files\Tab3\IKCamera</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ButtonsPult.h">
+      <Filter>Header Files\Tab3\ButtonsPult</Filter>
+    </CustomBuild>
+    <CustomBuild Include="HotButtons.h">
+      <Filter>Header Files\Tab3\HotButtons</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ElseSettings.h">
+      <Filter>Header Files\Tab3\ElseSettings</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_FotonMainWindow.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="GroupButtons.h">
+      <Filter>Header Files\Tab1\CircumWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraGroup.h">
+      <Filter>Header Files\Tab1\ViewWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="LensesGroup.h">
+      <Filter>Header Files\Tab1\ViewWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="QCameraFrame.h">
+      <Filter>Header Files\Tab1\ImageFrame</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_Tab1.h">
+      <Filter>Header Files\Tab1</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui_Tab2.h">
+      <Filter>Header Files\Tab2</Filter>
+    </ClInclude>
+    <ClInclude Include="Tab1Ui.h">
+      <Filter>Header Files\Tab1</Filter>
+    </ClInclude>
+    <ClInclude Include="Tab2Ui.h">
+      <Filter>Header Files\Tab2</Filter>
+    </ClInclude>
+    <ClInclude Include="Tab3Ui.h">
+      <Filter>Header Files\Tab3</Filter>
+    </ClInclude>
+    <ClInclude Include="FotonMainWindowUi.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
