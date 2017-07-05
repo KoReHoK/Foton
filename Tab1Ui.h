@@ -50,7 +50,7 @@ public:
 		hLayout->addWidget(rightWidgets, Qt::AlignRight);
 
 		navBar = new NavigationBar(Form);
-		navBar->setGeometry(0, 0, 38, 476);
+		navBar->setGeometry(0, 9, 38, 476);
 		navBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
 		navBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
 		navBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");

@@ -35,12 +35,13 @@ public:
 		toolBox = new QToolBox(Form);
 		toolBox->addItem(settings, "Настройки карты пластины");
 		toolBox->addItem(legend, "Легенда");
+		toolBox->setFixedWidth(300);
 		navBar = new NavigationBar(Form);
 		navBar->addElement(QIcon(":/icons/Resources/icons/createFile.png"), "Создать");
 		navBar->addElement(QIcon(":/icons/Resources/icons/openFile.png"), "Открыть");
 		navBar->addElement(QIcon(":/icons/Resources/icons/saveFile.png"), "Сохранить");
 		navBar->addElement(QIcon(":/icons/Resources/icons/handLayer.png"), "Выделить");
-		navBar->setGeometry(0, 0, 38, 170);
+		navBar->setGeometry(0, 9, 38, 170);
 		widget = new QWidget();
 		hLayout = new QHBoxLayout(Form);
 		hLayout->addWidget(widget, 0, Qt::AlignLeft);

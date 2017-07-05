@@ -8,7 +8,7 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QToolBox>
 #include <QtWidgets/QGridLayout>
-#include "ButtonsPult.h"
+#include "TableSettings.h"
 #include "HotButtons.h"
 #include "ElseSettings.h"
 #include "CameraSettings.h"
@@ -19,9 +19,9 @@ class Ui_Tab3
 {
 protected:
 	CameraSettings	*visibleCamera;
-	CameraSettings		*ikCamera;
-	ButtonsPult		*buttonsPult;
-	HotButtons		*hotButtons;
+	CameraSettings	*ikCamera;
+	TableSettings	*buttonsPult;
+	TableSettings	*hotButtons;
 	ElseSettings	*settings;
 	QToolBox		*toolBox;
 	QWidget			*cameraWidget;
@@ -37,26 +37,32 @@ public:
 		Form->resize(400, 300);
 
 		visibleCamera = new CameraSettings();
-		visibleCamera->addSetings("Экспозиция");
-		visibleCamera->addSetings("Яркость");
-		visibleCamera->addSetings("Усиление (цифр.)");
-		visibleCamera->addSetings("Усиление (аналог.)");
-		visibleCamera->addSetings("FPS");
-		visibleCamera->addSetings("Гамма");
-		visibleCamera->addSetings("Насыщенность");
-		visibleCamera->addSetings("Красный");
-		visibleCamera->addSetings("Синий");
-		visibleCamera->addSetings("Зеленый");
+		visibleCamera->addSettings("Экспозиция");
+		visibleCamera->addSettings("Яркость");
+		visibleCamera->addSettings("Усиление (цифр.)");
+		visibleCamera->addSettings("Усиление (аналог.)");
+		visibleCamera->addSettings("FPS");
+		visibleCamera->addSettings("Гамма");
+		visibleCamera->addSettings("Насыщенность");
+		visibleCamera->addSettings("Красный");
+		visibleCamera->addSettings("Синий");
+		visibleCamera->addSettings("Зеленый");
+		visibleCamera->addFieldSettings("X5");
+		visibleCamera->addFieldSettings("X10");
+		visibleCamera->addFieldSettings("X20");
 
 		ikCamera = new CameraSettings();
-		ikCamera->addSetings("Экспозиция");
-		ikCamera->addSetings("Яркость");
-		ikCamera->addSetings("Усиление (цифр.)");
-		ikCamera->addSetings("Усиление (аналог.)");
-		ikCamera->addSetings("FPS");
+		ikCamera->addSettings("Экспозиция");
+		ikCamera->addSettings("Яркость");
+		ikCamera->addSettings("Усиление (цифр.)");
+		ikCamera->addSettings("Усиление (аналог.)");
+		ikCamera->addSettings("FPS");
+		ikCamera->addFieldSettings("IX5");
+		ikCamera->addFieldSettings("IX10");
+		ikCamera->addFieldSettings("IX20");
 
-		buttonsPult = new ButtonsPult();
-		hotButtons = new HotButtons();
+		buttonsPult = new TableSettings();
+		hotButtons = new TableSettings();
 		settings = new ElseSettings();
 		toolBox = new QToolBox();
 		toolBox->addItem(visibleCamera, "Камера видимого спектра");
@@ -64,6 +70,7 @@ public:
 		toolBox->addItem(buttonsPult, "Кнопки пульта");
 		toolBox->addItem(hotButtons, "Горячие клавиши");
 		toolBox->addItem(settings, "Прочие настройки");
+		toolBox->setFixedWidth(300);
 
 		cameraWidget = new QWidget();
 		gistWidget = new QWidget();

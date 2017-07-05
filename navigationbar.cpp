@@ -70,7 +70,7 @@ void NavigationBar::addElement(QIcon icon, QString caption)
 	QFont font = m_buttons.back().second->font();
 	QFontMetrics fm(font);
 	if(fm.width(caption)>maxTextWidth)
-		maxTextWidth = fm.width(caption);
+		maxTextWidth = fm.width(caption) + 10;
     formLayout->addRow(m_buttons.back().first,m_buttons.back().second);
 	setMaximumWidth(32 + 6 + maxTextWidth);
     update();

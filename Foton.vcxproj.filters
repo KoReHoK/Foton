@@ -82,30 +82,6 @@
     <Filter Include="Source Files\Tab3">
       <UniqueIdentifier>{892457c3-2254-4c07-a590-1756040d1bbc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Tab3\VisibleCamera">
-      <UniqueIdentifier>{9ea14818-bbea-4a1c-91d9-6cb34a7c88cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab3\VisibleCamera">
-      <UniqueIdentifier>{814e73ac-bc16-45d9-978d-1e931d1b5faa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Tab3\ButtonsPult">
-      <UniqueIdentifier>{caa058cc-b767-40f2-9c7d-37b8ffbaab0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab3\ButtonsPult">
-      <UniqueIdentifier>{c249e8cb-da7d-41ff-931d-8696fcbdb361}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Tab3\HotButtons">
-      <UniqueIdentifier>{2a38a408-daa8-4571-aab9-20d8bd14af93}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab3\HotButtons">
-      <UniqueIdentifier>{8cbd28db-9cf9-4bf2-8f1e-30889673338e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Tab3\ElseSettings">
-      <UniqueIdentifier>{8b218d79-55c3-4af6-b01e-cec0e45d6b5d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab3\ElseSettings">
-      <UniqueIdentifier>{1bdb6521-8f07-4b65-a629-b361021d7802}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -234,31 +210,10 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Tab3.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="ButtonsPult.cpp">
-      <Filter>Source Files\Tab3\ButtonsPult</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ButtonsPult.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="HotButtons.cpp">
-      <Filter>Source Files\Tab3\HotButtons</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_HotButtons.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="ElseSettings.cpp">
-      <Filter>Source Files\Tab3\ElseSettings</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ElseSettings.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_ElseSettings.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_HotButtons.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ButtonsPult.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="FotonMainWindowUi.cpp">
@@ -270,8 +225,20 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CameraSettings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TableSettings.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TableSettings.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="TableSettings.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="ElseSettings.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
     <ClCompile Include="CameraSettings.cpp">
-      <Filter>Source Files\Tab3\VisibleCamera</Filter>
+      <Filter>Source Files\Tab3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,17 +281,14 @@
     <CustomBuild Include="Tab3.h">
       <Filter>Header Files\Tab3</Filter>
     </CustomBuild>
-    <CustomBuild Include="ButtonsPult.h">
-      <Filter>Header Files\Tab3\ButtonsPult</Filter>
-    </CustomBuild>
-    <CustomBuild Include="HotButtons.h">
-      <Filter>Header Files\Tab3\HotButtons</Filter>
+    <CustomBuild Include="CameraSettings.h">
+      <Filter>Header Files\Tab3</Filter>
     </CustomBuild>
     <CustomBuild Include="ElseSettings.h">
-      <Filter>Header Files\Tab3\ElseSettings</Filter>
+      <Filter>Header Files\Tab3</Filter>
     </CustomBuild>
-    <CustomBuild Include="CameraSettings.h">
-      <Filter>Header Files\Tab3\VisibleCamera</Filter>
+    <CustomBuild Include="TableSettings.h">
+      <Filter>Header Files\Tab3</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -339,12 +303,6 @@
     </ClInclude>
     <ClInclude Include="QCameraFrame.h">
       <Filter>Header Files\Tab1\ImageFrame</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_Tab1.h">
-      <Filter>Header Files\Tab1</Filter>
-    </ClInclude>
-    <ClInclude Include="Ui_Tab2.h">
-      <Filter>Header Files\Tab2</Filter>
     </ClInclude>
     <ClInclude Include="Tab1Ui.h">
       <Filter>Header Files\Tab1</Filter>
