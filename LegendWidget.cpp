@@ -3,20 +3,32 @@
 LegendWidget::LegendWidget(QWidget *parent)
 	: QWidget(parent)
 {
-	pushMe = new QPushButton("Добавить дефект");
-	QObject::connect(pushMe, SIGNAL(clicked()), this, SLOT(createButtons()));
-	vLayout = new QVBoxLayout(this);
-	vLayout->addWidget(pushMe);
+	pushMe = new QPushButton("Добавить дефект", this);
+	pushMe->setGeometry(10, 10, 280, 30);
+	QObject::connect(pushMe, SIGNAL(clicked()), this, SLOT(createDefekt()));
 }
 
 LegendWidget::~LegendWidget()
 {
 }
 
-void LegendWidget::createButtons()
+void LegendWidget::createDefekt()
 {
-	QLabel *tmp = new QLabel("example");
-	defVector.push_back(tmp);
-	vLayout->addWidget(tmp);
-	tmp->setVisible(true);
+	SimpleWidget *sWidget = new SimpleWidget();
+	sWidget->setParent(this);
+	defVector.push_back(sWidget);
+	sWidget->setGeometry(10, 50 * defVector.size(), 280, 100);
+	sWidget->setVisible(true);
+	//resizeEvent();
+}
+
+void LegendWidget::resizeEvent()
+{
+
+	for (size_t i = 0; i < defVector.size(); i++)
+	{
+		defVector[i]->setParent(this);
+		defVector[i]->setGeometry(10, 50*(i+1), 280, 100);
+		defVector[i]->setVisible(true);
+	}
 }

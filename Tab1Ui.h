@@ -6,6 +6,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QLayout>
+#include <QDockWidget>
 #include "ViewWidget.h"
 #include "CircumWidget.h"
 #include "QCameraFrame.h"
@@ -19,8 +20,10 @@ protected:
 	ViewWidget *viewWidget;
 	CircumWidget *circumWidget;
 	QCameraFrame *cameraFrame;
+	QCameraFrame *cameraFrame2;
 	QWidget *rightWidgets;
 	NavigationBar *navBar;
+	QDockWidget	*mapWidget;
 
 	QVBoxLayout *vLayout;
 	QHBoxLayout *hLayout;
@@ -37,6 +40,13 @@ public:
 		circumWidget = new CircumWidget();
 		cameraFrame = new QCameraFrame();
 		cameraFrame->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+
+		cameraFrame2 = new QCameraFrame();
+		mapWidget = new QDockWidget("Камера", Form);
+		mapWidget->setWidget(cameraFrame2);
+		mapWidget->showFullScreen();
+		//mapWidget->setGeometry(50, 0, 100, 100);
+
 		rightWidgets = new QWidget();
 		rightWidgets->setSizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Expanding);
 

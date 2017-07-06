@@ -22,7 +22,7 @@ protected:
 	Tab2 *tab2;
 	Tab3 *tab3;
 
-	QTabWidget	 *centralWidget;
+	QTabWidget	*centralWidget;
 	QStatusBar *statusBar;
 
 	void setupCentralWidget(QMainWindow *FotonMainWindowClass);

@@ -1,19 +1,17 @@
 #include "TableSettings.h"
 
 TableSettings::TableSettings(QWidget *parent)
-	: QWidget(parent)
+	: QTableWidget(parent)
 {
-	table = new QTableWidget(12, 2);
+	this->setRowCount(12);
+	this->setColumnCount(2);
 	QTableWidgetItem *firstColumnHeader = new QTableWidgetItem("Кнопка");
 	QTableWidgetItem *secondColumnHeader = new QTableWidgetItem("Функция");
-	table->setHorizontalHeaderItem(0, firstColumnHeader);
-	table->setHorizontalHeaderItem(1, secondColumnHeader);
-	table->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
-	table->setColumnWidth(0, 125);
-	table->setColumnWidth(1, 126);
-
-	vLayout = new QVBoxLayout(this);
-	vLayout->addWidget(table);
+	this->setHorizontalHeaderItem(0, firstColumnHeader);
+	this->setHorizontalHeaderItem(1, secondColumnHeader);
+	this->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+	this->setColumnWidth(0, 138);
+	this->setColumnWidth(1, 138);
 }
 
 TableSettings::~TableSettings()

@@ -9,7 +9,6 @@
 #include <QtWidgets/QToolBox>
 #include <QtWidgets/QGridLayout>
 #include "TableSettings.h"
-#include "HotButtons.h"
 #include "ElseSettings.h"
 #include "CameraSettings.h"
 
@@ -77,8 +76,8 @@ public:
 
 		gLayout = new QGridLayout(Form);
 		gLayout->addWidget(toolBox, 0, 0, 2, 1, Qt::AlignLeft);
-		gLayout->addWidget(cameraWidget, 0, 1, 1, 2, Qt::AlignRight);
-		gLayout->addWidget(gistWidget, 1, 1, 1, 1, Qt::AlignCenter);
+		//gLayout->addWidget(cameraWidget, 0, 1, 1, 2, Qt::AlignRight);
+		//gLayout->addWidget(gistWidget, 1, 1, 1, 1, Qt::AlignCenter);
 		//gLayout->addWidget(etiketka, 1, 2, 1, 1, Qt::AlignCenter);
 
 		QMetaObject::connectSlotsByName(Form);
