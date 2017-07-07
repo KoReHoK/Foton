@@ -22,4 +22,5 @@ public:
 
 public slots:
 	void createDefekt();
+	void resizeVector(uint);
 };

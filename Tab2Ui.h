@@ -36,7 +36,7 @@ public:
 		toolBox->addItem(settings, "Настройки карты пластины");
 		toolBox->addItem(legend, "Легенда");
 		toolBox->setFixedWidth(300);
-		navBar = new NavigationBar(Form);
+		navBar = new NavigationBar(true, Form);
 		navBar->addElement(QIcon(":/icons/Resources/icons/createFile.png"), "Создать");
 		navBar->addElement(QIcon(":/icons/Resources/icons/openFile.png"), "Открыть");
 		navBar->addElement(QIcon(":/icons/Resources/icons/saveFile.png"), "Сохранить");

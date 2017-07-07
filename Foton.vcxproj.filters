@@ -105,12 +105,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Tab1.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_navigationbar.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_navigationbar.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="Tab1.cpp">
       <Filter>Source Files\Tab1</Filter>
     </ClCompile>
@@ -125,9 +119,6 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_CircumWidget.cpp">
       <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="navigationbar.cpp">
-      <Filter>Source Files\Tab1\NavigationBar</Filter>
     </ClCompile>
     <ClCompile Include="ViewWidget.cpp">
       <Filter>Source Files\Tab1\ViewWidget</Filter>
@@ -249,6 +240,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SimpleWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="navigationbar.cpp">
+      <Filter>Source Files\Tab1\NavigationBar</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_navigationbar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_navigationbar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="FotonMainWindow.h">
@@ -259,9 +259,6 @@
     </CustomBuild>
     <CustomBuild Include="Tab1.h">
       <Filter>Header Files\Tab1</Filter>
-    </CustomBuild>
-    <CustomBuild Include="navigationbar.h">
-      <Filter>Header Files\Tab1\NavigationBar</Filter>
     </CustomBuild>
     <CustomBuild Include="CircumWidget.h">
       <Filter>Header Files\Tab1\CircumWidget</Filter>
@@ -301,6 +298,9 @@
     </CustomBuild>
     <CustomBuild Include="SimpleWidget.h">
       <Filter>Header Files\Tab2</Filter>
+    </CustomBuild>
+    <CustomBuild Include="navigationbar.h">
+      <Filter>Header Files\Tab1\NavigationBar</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

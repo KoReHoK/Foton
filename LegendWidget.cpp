@@ -1,7 +1,7 @@
 #include "LegendWidget.h"
 
 LegendWidget::LegendWidget(QWidget *parent)
-	: QWidget(parent)
+	: QWidget(parent) 
 {
 	pushMe = new QPushButton("Добавить дефект", this);
 	pushMe->setGeometry(10, 10, 280, 30);
@@ -12,23 +12,24 @@ LegendWidget::~LegendWidget()
 {
 }
 
-void LegendWidget::createDefekt()
-{
+void LegendWidget::createDefekt() {
 	SimpleWidget *sWidget = new SimpleWidget();
-	sWidget->setParent(this);
 	defVector.push_back(sWidget);
-	sWidget->setGeometry(10, 50 * defVector.size(), 280, 100);
-	sWidget->setVisible(true);
-	//resizeEvent();
+	resizeEvent();
+
+	QObject::connect(sWidget, SIGNAL(deleteWidget(uint)), this, SLOT(resizeVector(uint)));
 }
 
-void LegendWidget::resizeEvent()
-{
-
-	for (size_t i = 0; i < defVector.size(); i++)
-	{
+void LegendWidget::resizeEvent() {
+	for (size_t i = 0; i < defVector.size(); i++) {
 		defVector[i]->setParent(this);
 		defVector[i]->setGeometry(10, 50*(i+1), 280, 100);
 		defVector[i]->setVisible(true);
+		defVector[i]->setID(i);
 	}
+}
+
+void LegendWidget::resizeVector(uint _id) {
+	defVector.erase(defVector.begin() + _id);
+	resizeEvent();
 }
