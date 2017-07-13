@@ -13,11 +13,14 @@ LegendWidget::~LegendWidget()
 }
 
 void LegendWidget::createDefekt() {
-	SimpleWidget *sWidget = new SimpleWidget();
+	QColorDialog *cDialog = new QColorDialog();
+	cDialog->show();
+	SimpleWidget *sWidget = new SimpleWidget(cDialog->currentColor());
 	defVector.push_back(sWidget);
 	resizeEvent();
 
 	QObject::connect(sWidget, SIGNAL(deleteWidget(uint)), this, SLOT(resizeVector(uint)));
+	QObject::connect(cDialog, SIGNAL(currentColorChanged(QColor)), sWidget, SLOT(colorChanged(QColor)));
 }
 
 void LegendWidget::resizeEvent() {

@@ -1,17 +1,13 @@
 #include "SimpleWidget.h"
 
-SimpleWidget::SimpleWidget(QWidget * parent) : color(Qt::black)
+SimpleWidget::SimpleWidget(QColor col, QWidget * parent) : color(col)
 {
 	defName = new QLabel("Название дефекта", this);
 	defName->setGeometry(50, 10, 100, 30);
-	comboColor = new QComboBox(this);
-	comboColor->addItems(QStringList({ "black", "red", "green", "blue", "yellow" }));
-	comboColor->setGeometry(160, 10, 50, 30);
 	delDef = new QPushButton("Удалить", this);
 	delDef->setGeometry(220, 10, 50, 30);
 	repaint();
 
-	QObject::connect(comboColor, SIGNAL(currentIndexChanged(int)), this, SLOT(colorChanged(int)));
 	QObject::connect(delDef, SIGNAL(clicked()), this, SLOT(delWidget()));
 }
 
@@ -28,14 +24,8 @@ void SimpleWidget::paintEvent(QPaintEvent * event) {
 	painter.end();
 }
 
-void SimpleWidget::colorChanged(int index){
-	switch (index) {
-		case 0: color = Qt::black; break;
-		case 1: color = Qt::red;   break;
-		case 2: color = Qt::green;  break;
-		case 3: color = Qt::blue;  break;
-		case 4: color = Qt::yellow; break;
-	}
+void SimpleWidget::colorChanged(QColor col){
+	color = col;
 	repaint();
 }
 
@@ -44,6 +34,7 @@ void SimpleWidget::delWidget() {
 	delete this;
 }
 
-void SimpleWidget::setID(uint _id) {
+void SimpleWidget::setID(uint _id)
+{
 	id = _id;
 }

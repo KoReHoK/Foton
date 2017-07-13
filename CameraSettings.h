@@ -3,6 +3,7 @@
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QLineEdit>
+#include <QSettings>
 #include <QSpacerItem>
 #include <QGridLayout>
 #include <vector>
@@ -29,15 +30,19 @@ class CameraSettings : public QWidget
 	Q_OBJECT
 
 protected:
-	std::vector<settingsSpace::simpleSettings> settings;
+	std::vector<settingsSpace::simpleSettings> ssettings;
 	std::vector<settingsSpace::fieldSettings> fSettings;
 	QGroupBox	*gBox;
 	QGridLayout *formLayout;
 	QGridLayout	*gBoxLayout;
+	QSettings	*settings;
+	QString		*keySettings;
 
 public:
-	CameraSettings(QWidget *parent = Q_NULLPTR);
+	CameraSettings(QString *key, QWidget *parent = Q_NULLPTR);
 	~CameraSettings();
 	void addSettings(QString);
 	void addFieldSettings(QString);
+	void saveSettings();
+	void loadSettings();
 };

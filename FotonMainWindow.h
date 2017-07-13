@@ -9,6 +9,7 @@ class FotonMainWindow : public QMainWindow
 
 public:
 	FotonMainWindow(QWidget *parent = Q_NULLPTR);
+	~FotonMainWindow();
 
 private:
 	Ui::FotonMainWindowClass ui;

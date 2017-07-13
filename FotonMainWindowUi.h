@@ -8,6 +8,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QSettings>
 
 #include "Tab1.h"
 #include "Tab2.h"
@@ -24,13 +25,15 @@ protected:
 
 	QTabWidget	*centralWidget;
 	QStatusBar *statusBar;
+	QSettings	*settings;
 
 	void setupCentralWidget(QMainWindow *FotonMainWindowClass);
 
 public:
 
 	void setupUi(QMainWindow *FotonMainWindowClass);
-
+	void saveSettings(QMainWindow *FotonMainWindowClass);
+	void loadSettings(QMainWindow *FotonMainWindowClass);
 };
 
 namespace Ui {

@@ -19,42 +19,47 @@ class Ui_Tab1
 {
 protected:
 	QCameraFrame *cameraFrame;
-	QCameraFrame *cameraFrame2;
+	//QCameraFrame *cameraFrame2;
 	NavigationBar *navBar;
 	QDockWidget	*mapWidget;
 
 	QVBoxLayout *vLayout;
 	QHBoxLayout *hLayout;
-	QMenu* ObjectivesMenu = nullptr;
+	QMenu *objectivesMenu;
+	QMenu *joystickMenu;
+
 
 public:
 
 	void setupUi(QWidget *Form)
 	{
-		if (Form->objectName().isEmpty())
-			Form->setObjectName(QStringLiteral("Form"));
-		Form->resize(400, 300);
-
 		cameraFrame = new QCameraFrame();
 		cameraFrame->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
 
-		/*cameraFrame2 = new QCameraFrame();
-		cameraFrame2->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
-		mapWidget = new QDockWidget("Камера", cameraFrame);
-		mapWidget->setWidget(cameraFrame2);
-		mapWidget->setGeometry(Form->width() - 150, Form->height() - 150, 150, 150);
-		mapWidget->showFullScreen();*/
-
+// 		cameraFrame2 = new QCameraFrame();
+// 		cameraFrame2->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
+		//mapWidget = new QDockWidget("Камера", cameraFrame);
+		//mapWidget->setWidget(new QFrame());
+		//mapWidget->setGeometry(Form->width() - 150, Form->height() - 150, 150, 150);
+		//mapWidget->showFullScreen();
+		//cameraFrame->SetSecondOutWnd((HWND)mapWidget->winId());
 		hLayout = new QHBoxLayout(Form);
 		hLayout->addWidget(cameraFrame, Qt::AlignLeft);
 
-		ObjectivesMenu = new QMenu();
-		ObjectivesMenu->addAction("X5");
-		ObjectivesMenu->addAction("X10");
-		ObjectivesMenu->addAction("X20");
-		ObjectivesMenu->addAction("IX5");
-		ObjectivesMenu->addAction("IX10");
-		ObjectivesMenu->addAction("IX20");
+		objectivesMenu = new QMenu();
+		objectivesMenu->addAction("X5");
+		objectivesMenu->addAction("X10");
+		objectivesMenu->addAction("X20");
+		objectivesMenu->addAction("IX5");
+		objectivesMenu->addAction("IX10");
+		objectivesMenu->addAction("IX20");
+
+		joystickMenu = new QMenu();
+		joystickMenu->addAction("Медленно");
+		joystickMenu->addAction("Нормально");
+		joystickMenu->addAction("Быстро");
+		joystickMenu->addAction("Рывки");
+		joystickMenu->addAction("В зоне");
 
 		navBar = new NavigationBar(true, Form);
 		navBar->setGeometry(0, 9, 38, 476);
@@ -71,10 +76,8 @@ public:
 		navBar->addElement(QIcon(":/icons/Resources/icons/inversion.png"), "Инверсия цвета");
 		navBar->addElement(QIcon(":/icons/Resources/icons/layer.png"), "Слои");
 		navBar->addElement(QIcon(":/icons/Resources/icons/panorama.png"), "Панорамма кристалла");
-		navBar->addElement(QIcon(""), "Объективы", ObjectivesMenu);
-		navBar->addElement(QIcon(""), "Режимы джойстика");
-
-		//QMetaObject::connectSlotsByName(Form);
+		navBar->addElement(QIcon(":/icons/Resources/icons/objective.png"), "Объективы", objectivesMenu);
+		navBar->addElement(QIcon(":/icons/Resources/icons/joystick.png"), "Режимы джойстика", joystickMenu);
 	} // setupUi
 
 };

@@ -2,7 +2,6 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QComboBox>
 #include <QPainter>
 
 class SimpleWidget : public QWidget
@@ -12,22 +11,21 @@ class SimpleWidget : public QWidget
 protected:
 	QLabel *defName;
 	QPushButton	*delDef;
-	QComboBox	*comboColor;
 	QPainter	painter;
-	uint id;
-	Qt::GlobalColor	color;
+	QColor	color;
 	void paintEvent(QPaintEvent *event);
+	uint	id;
 
 protected slots:
 	void delWidget();
-	void colorChanged(int);
+	void colorChanged(QColor);
 
 signals:
 	void deleteWidget(uint);
 
 public:
-	SimpleWidget(QWidget *parent = Q_NULLPTR);
+	SimpleWidget(QColor, QWidget *parent = Q_NULLPTR);
 	~SimpleWidget();
-	
+
 	void setID(uint);
 };

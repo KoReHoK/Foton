@@ -41,10 +41,11 @@ QRect QCameraFrame::centeredViewport(int width, int height) const {
 		return QRect((width - widthFromHeight) / 2.0, 0, widthFromHeight, height);
 	}
 }
-
+#include <QtWinExtras/qwinfunctions.h>
 void QCameraFrame::paintEvent(QPaintEvent *) {
 	QPainter painter(this);
 	painter.fillRect(0, 0, width(), height(), Qt::BrushStyle::SolidPattern);
+
 	painter.setRenderHint(QPainter::Antialiasing);
 	{
 		std::lock_guard<std::mutex> lock(frameMutex);
@@ -56,7 +57,27 @@ void QCameraFrame::paintEvent(QPaintEvent *) {
 			auto& rects = customScaleRectangles();
 			painter.drawImage(rects.first, currentImage, rects.second);
 		}
+
+		if (IsWindow(secondWnd))
+		{
+			HDC hdc = GetDC(secondWnd);
+			QPixmap px = QPixmap::fromImage(currentImage);
+			HBITMAP bitmap = QtWin::toHBITMAP(px);
+			RECT secondWndRect;
+			GetClientRect(secondWnd, &secondWndRect);
+			HDC hMemDCOrig = CreateCompatibleDC(hdc);
+			HGDIOBJ hOldBmOrig = SelectObject(hMemDCOrig, bitmap);
+
+			StretchBlt(hdc, 0, 0, secondWndRect.right, secondWndRect.bottom, hMemDCOrig, 0, 0, currentImage.width(), currentImage.height(), SRCCOPY);
+			DeleteDC(hMemDCOrig);
+		}
+
 	}
+}
+
+void QCameraFrame::SetSecondOutWnd(HWND winId)
+{
+	secondWnd = winId;
 }
 
 std::pair<QRect, QRect> QCameraFrame::customScaleRectangles() const {

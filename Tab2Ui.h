@@ -27,9 +27,6 @@ public:
 
 	void setupUi(QWidget *Form)
 	{
-		if (Form->objectName().isEmpty())
-			Form->setObjectName(QStringLiteral("Form"));
-		Form->resize(400, 300);
 		settings = new SettingsWidget();
 		legend = new LegendWidget();
 		toolBox = new QToolBox(Form);
@@ -46,16 +43,7 @@ public:
 		hLayout = new QHBoxLayout(Form);
 		hLayout->addWidget(widget, 0, Qt::AlignLeft);
 		hLayout->addWidget(toolBox, 0, Qt::AlignRight);
-
-		retranslateUi(Form);
-
-		QMetaObject::connectSlotsByName(Form);
 	} // setupUi
-
-	void retranslateUi(QWidget *Form)
-	{
-		Form->setWindowTitle(QApplication::translate("Form", "Form", Q_NULLPTR));
-	} // retranslateUi
 
 };
 

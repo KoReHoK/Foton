@@ -31,11 +31,7 @@ public:
 
 	void setupUi(QWidget *Form)
 	{
-		if (Form->objectName().isEmpty())
-			Form->setObjectName(QStringLiteral("Form"));
-		Form->resize(400, 300);
-
-		visibleCamera = new CameraSettings();
+		visibleCamera = new CameraSettings(new QString("visibleCamera"));
 		visibleCamera->addSettings("Экспозиция");
 		visibleCamera->addSettings("Яркость");
 		visibleCamera->addSettings("Усиление (цифр.)");
@@ -49,8 +45,9 @@ public:
 		visibleCamera->addFieldSettings("X5");
 		visibleCamera->addFieldSettings("X10");
 		visibleCamera->addFieldSettings("X20");
+		visibleCamera->loadSettings();
 
-		ikCamera = new CameraSettings();
+		ikCamera = new CameraSettings(new QString("ikCamera"));
 		ikCamera->addSettings("Экспозиция");
 		ikCamera->addSettings("Яркость");
 		ikCamera->addSettings("Усиление (цифр.)");
@@ -59,6 +56,7 @@ public:
 		ikCamera->addFieldSettings("IX5");
 		ikCamera->addFieldSettings("IX10");
 		ikCamera->addFieldSettings("IX20");
+		ikCamera->loadSettings();
 
 		buttonsPult = new TableSettings();
 		hotButtons = new TableSettings();
@@ -71,16 +69,14 @@ public:
 		toolBox->addItem(settings, "Прочие настройки");
 		toolBox->setFixedWidth(300);
 
-		cameraWidget = new QWidget();
-		gistWidget = new QWidget();
+		//cameraWidget = new QWidget();
+		//gistWidget = new QWidget();
 
 		gLayout = new QGridLayout(Form);
 		gLayout->addWidget(toolBox, 0, 0, 2, 1, Qt::AlignLeft);
 		//gLayout->addWidget(cameraWidget, 0, 1, 1, 2, Qt::AlignRight);
 		//gLayout->addWidget(gistWidget, 1, 1, 1, 1, Qt::AlignCenter);
 		//gLayout->addWidget(etiketka, 1, 2, 1, 1, Qt::AlignCenter);
-
-		QMetaObject::connectSlotsByName(Form);
 	} // setupUi
 
 };

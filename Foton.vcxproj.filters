@@ -249,6 +249,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_navigationbar.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="LoadDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="FotonMainWindow.h">
@@ -326,6 +329,9 @@
       <Filter>Header Files\Tab3</Filter>
     </ClInclude>
     <ClInclude Include="FotonMainWindowUi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadDll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

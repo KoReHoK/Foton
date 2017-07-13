@@ -24,5 +24,7 @@
         <file>Resources/icons/toFirst.png</file>
         <file>Resources/icons/wizard.png</file>
         <file>Resources/icons/zone.png</file>
+        <file>Resources/icons/objective.png</file>
+        <file>Resources/icons/joystick.png</file>
     </qresource>
 </RCC>

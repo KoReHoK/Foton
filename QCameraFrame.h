@@ -19,8 +19,9 @@ public:
 	double imageAspectRatio() const;
 	void paintEvent(QPaintEvent *);
 
+	void SetSecondOutWnd(HWND winId);
 	QTime myTimer;
-
+	HWND secondWnd = nullptr;
 	void SetScale(float newScale, const QPoint& immobilePoint);
 	void IncrementScale(const QPoint& immobilePoint);
 	void DecrementScale(const QPoint& immobilePoint);

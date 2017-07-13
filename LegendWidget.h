@@ -2,7 +2,7 @@
 
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QLabel>
+#include <QtWidgets/QColorDialog>
 #include "SimpleWidget.h"
 
 
