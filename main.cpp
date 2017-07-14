@@ -1,6 +1,6 @@
 #include "FotonMainWindow.h"
 #include <QtWidgets/QApplication>
-//#include "LoadDll.h"
+#include "LoadDll.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	QApplication a(argc, argv);
 	a.setApplicationName("Foton");
 	a.setOrganizationName("Optoelectronic systems");
-	//CLoadDll myDll("BaslerAce");
+	CLoadDll myDll("BaslerAce");
 	FotonMainWindow w;
 	w.show();
 

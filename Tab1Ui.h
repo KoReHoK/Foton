@@ -7,8 +7,6 @@
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QLayout>
 #include <QDockWidget>
-#include "ViewWidget.h"
-#include "CircumWidget.h"
 #include "QCameraFrame.h"
 #include "navigationbar.h"
 #include <QMenu>

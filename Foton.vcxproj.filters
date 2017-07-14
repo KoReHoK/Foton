@@ -43,20 +43,8 @@
     <Filter Include="Source Files\Tab1\NavigationBar">
       <UniqueIdentifier>{8c962439-1ade-4a96-8d22-c1e25879a6c7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Tab1\ViewWidget">
-      <UniqueIdentifier>{a913b2b9-5489-459a-80e5-2b4919c2f8b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Tab1\CircumWidget">
-      <UniqueIdentifier>{4d654de0-3062-4a70-a590-360345c57c0b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Tab1\NavigationBar">
       <UniqueIdentifier>{3e541d6e-d48f-4761-a587-15d7c6fa7879}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Tab1\CircumWidget">
-      <UniqueIdentifier>{4e680054-c289-4adb-8e35-525562f2723f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Tab1\ViewWidget">
-      <UniqueIdentifier>{8538849d-6e33-4997-9581-fb7fbb110acf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Tab1\ImageFrame">
       <UniqueIdentifier>{70c3fa13-5897-4ff2-9d83-6fce66330910}</UniqueIdentifier>
@@ -107,33 +95,6 @@
     </ClCompile>
     <ClCompile Include="Tab1.cpp">
       <Filter>Source Files\Tab1</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ViewWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ViewWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_CircumWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_CircumWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewWidget.cpp">
-      <Filter>Source Files\Tab1\ViewWidget</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraGroup.cpp">
-      <Filter>Source Files\Tab1\ViewWidget</Filter>
-    </ClCompile>
-    <ClCompile Include="LensesGroup.cpp">
-      <Filter>Source Files\Tab1\ViewWidget</Filter>
-    </ClCompile>
-    <ClCompile Include="CircumWidget.cpp">
-      <Filter>Source Files\Tab1\CircumWidget</Filter>
-    </ClCompile>
-    <ClCompile Include="GroupButtons.cpp">
-      <Filter>Source Files\Tab1\CircumWidget</Filter>
     </ClCompile>
     <ClCompile Include="QCameraFrame.cpp">
       <Filter>Source Files\Tab1\ImageFrame</Filter>
@@ -263,12 +224,6 @@
     <CustomBuild Include="Tab1.h">
       <Filter>Header Files\Tab1</Filter>
     </CustomBuild>
-    <CustomBuild Include="CircumWidget.h">
-      <Filter>Header Files\Tab1\CircumWidget</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ViewWidget.h">
-      <Filter>Header Files\Tab1\ViewWidget</Filter>
-    </CustomBuild>
     <CustomBuild Include="Tab2.h">
       <Filter>Header Files\Tab2</Filter>
     </CustomBuild>
@@ -307,15 +262,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GroupButtons.h">
-      <Filter>Header Files\Tab1\CircumWidget</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraGroup.h">
-      <Filter>Header Files\Tab1\ViewWidget</Filter>
-    </ClInclude>
-    <ClInclude Include="LensesGroup.h">
-      <Filter>Header Files\Tab1\ViewWidget</Filter>
-    </ClInclude>
     <ClInclude Include="QCameraFrame.h">
       <Filter>Header Files\Tab1\ImageFrame</Filter>
     </ClInclude>
