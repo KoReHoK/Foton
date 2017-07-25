@@ -12,7 +12,9 @@
 #include <QLabel>
 #include <QPropertyAnimation>
 #include <QMenu>
-
+#include <QCursor>
+#include <QMessageBox>
+#include <QEvent>
 #include <QToolBar>
 class NavigationBar : public QWidget
 {
@@ -29,9 +31,12 @@ protected:
 	bool isExpand;
 	int maxTextWidth;
 	QPropertyAnimation *animation = nullptr;
+	QCursor	*myCursor;
     void resizeEvent(QResizeEvent * event);
 	const int ICON_W = 32;
 	bool m_isRightExpand;
+public:
+	bool eventFilter(QObject *watched, QEvent *event) override;
 signals:
 
 public slots:

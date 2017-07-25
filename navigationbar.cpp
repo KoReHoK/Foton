@@ -2,6 +2,7 @@
 
 NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(parent)
 {
+	myCursor = new QCursor(Qt::PointingHandCursor);
 	m_isRightExpand = isRightExpand;
 	//mainLayout = new QVBoxLayout;
 	formLayout = new QFormLayout;
@@ -11,7 +12,9 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 	setLayout(formLayout);
 	m_expandButton = std::make_pair(new QPushButton(QIcon(":/icons/Resources/icons/expand.png"), ""), new QLabel(""));
 	m_expandButton.first->setIconSize(QSize(ICON_W, ICON_W));
-	//m_expandButton.first->setMaximumWidth(ICON_W + 4);
+	m_expandButton.first->setCursor(*myCursor);
+	m_expandButton.first->setAttribute(Qt::WA_Hover);	// необходимо для обработки событий QEvent::HoverEnter и QEvent::HoverLeave
+	m_expandButton.first->installEventFilter(this);
 	m_expandButton.second->setVisible(0);
 	m_expandButton.second->setMinimumWidth(0);
 	if (m_isRightExpand)
@@ -74,7 +77,6 @@ void NavigationBar::ExpandPressed()
 	}
 	animation->start();
 	//update();
-
 }
 
 void NavigationBar::resizeEvent(QResizeEvent *event)
@@ -89,12 +91,31 @@ void NavigationBar::resizeEvent(QResizeEvent *event)
 		setGeometry(pos.x(), pos.y(), ICON_W + 4, pos.height());
 }
 
+bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
+{
+	QPushButton *tmp = static_cast<QPushButton*>(watched);
+
+	if (event->type() == QEvent::HoverEnter) {
+		tmp->setStyleSheet("background: rgb(100,100,100)");
+		return true;
+	}
+
+	if (event->type() == QEvent::HoverLeave) {
+		tmp->setStyleSheet("background: rgb(200,200,200)");
+		return true;
+	}
+	return false;
+}
+
 void NavigationBar::addElement(QIcon icon, QString caption, QMenu* menu)
 {
 	m_buttons.push_back(std::make_pair(new QPushButton(icon, ""), new QLabel(caption)));
 	m_buttons.back().first->setIconSize(QSize(ICON_W, ICON_W));
 	m_buttons.back().first->setMenu(menu);
-	//ќпредел¤ем самую длинную строчку, чтобы знать насколько экспандить меню
+	m_buttons.back().first->setCursor(*myCursor);
+	m_buttons.back().first->installEventFilter(this);
+	m_buttons.back().second->setCursor(*myCursor);
+//	Определяем самую длинную строчку, чтобы знать насколько экспандить меню
 	QFont font = m_buttons.back().second->font();
 	QFontMetrics fm(font);
 	if (fm.width(caption) > maxTextWidth)
