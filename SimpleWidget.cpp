@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "SimpleWidget.h"
 
 SimpleWidget::SimpleWidget(QColor col, QWidget * parent) : color(col)

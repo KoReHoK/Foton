@@ -1,8 +1,4 @@
 #pragma once
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
-#include <QPainter>
 
 class SimpleWidget : public QWidget
 {

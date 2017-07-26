@@ -1,5 +1,4 @@
 #pragma once
-#include <QLibrary>
 
 typedef void (__stdcall *CallBackFunc)( long code, long value );
 typedef int ( *pfFunc)(int key, void* value1, void* value2, void* value3);

@@ -1,15 +1,7 @@
 #pragma once
 
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QLayout>
-#include <QDockWidget>
 #include "QCameraFrame.h"
 #include "navigationbar.h"
-#include <QMenu>
 
 QT_BEGIN_NAMESPACE
 

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "FotonMainWindow.h"
 #include <QtWidgets/QApplication>
 #include "LoadDll.h"

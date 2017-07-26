@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "LoadDll.h"
-
 
 CLoadDll::CLoadDll(char* path)
 {

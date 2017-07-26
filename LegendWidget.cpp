@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "LegendWidget.h"
 
 LegendWidget::LegendWidget(QWidget *parent)

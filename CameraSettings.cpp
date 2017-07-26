@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "CameraSettings.h"
 
 CameraSettings::CameraSettings(QString *key, QWidget *parent)

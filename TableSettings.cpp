@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "TableSettings.h"
 
 TableSettings::TableSettings(QWidget *parent)

@@ -1,14 +1,6 @@
 #pragma once
-#include <QtWidgets/QFrame>
-#include <QLabel>
+
 #include <mutex>
-#include <QGraphicsView>
-#include <QGraphicsPixmapItem>
-#include <QOpenGLWidget>
-#include <QTime>
-#include <QWheelEvent>
-#include <QMouseEvent>
-#include <QEvent>
 
 class QCameraFrame :
 	public QOpenGLWidget

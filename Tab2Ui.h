@@ -1,13 +1,5 @@
 #pragma once
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QToolBox>
-#include <QtWidgets/QLayout> 
 #include "SettingsWidget.h"
 #include "LegendWidget.h"
 #include "navigationbar.h"

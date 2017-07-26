@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "OffsetGroup.h"
 
 OffsetGroup::OffsetGroup(QWidget *parent)

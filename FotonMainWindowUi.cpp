@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "FotonMainWindowUi.h"
 
 void FotonMainWindowClassUi::setupCentralWidget(QMainWindow *FotonMainWindowClass)

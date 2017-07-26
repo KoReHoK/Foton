@@ -1,11 +1,5 @@
 #pragma once
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QSlider>
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QLineEdit>
-#include <QSettings>
-#include <QSpacerItem>
-#include <QGridLayout>
+
 #include <vector>
 
 namespace settingsSpace {

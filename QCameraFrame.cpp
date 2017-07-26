@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "QCameraFrame.h"
 #include <qpainter.h>
 #include <QDebug>

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Tab3.h"
 
 Tab3::Tab3(QWidget *parent)

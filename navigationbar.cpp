@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "navigationbar.h"
 
 NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(parent)
@@ -52,7 +53,7 @@ void NavigationBar::ExpandPressed()
 	m_expandButton.first->setChecked(isExpand);
 	for (const auto &b : m_buttons)
 	{
-		b.second->setVisible(isExpand);
+		//b.second->setVisible(isExpand);
 	}
 
 	animation = new QPropertyAnimation(this, "geometry");
@@ -63,10 +64,28 @@ void NavigationBar::ExpandPressed()
 	animation->setStartValue(geom);
 	if (m_isRightExpand)
 	{
-		if (isExpand)
+		if (isExpand) {
+
+			for each (QToolButton *var in m_buttons)
+			{
+				var->setFixedWidth(maxTextWidth + 32);
+				var->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
+			}
+
 			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
-		else
+		}
+			
+		else {
+
+			for each (QToolButton *var in m_buttons)
+			{
+				var->setFixedWidth(32);
+				var->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
+			}
+
 			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4, geom.height()));
+		}
+			
 	}
 	else
 	{
@@ -87,45 +106,52 @@ void NavigationBar::resizeEvent(QResizeEvent *event)
 
 	if (isExpand)
 		setGeometry(pos.x(), pos.y(), ICON_W + 4 + maxTextWidth, pos.height());
-	else
-		setGeometry(pos.x(), pos.y(), ICON_W + 4, pos.height());
+	else 
+		setGeometry(pos.x(), pos.y(), ICON_W + 4, pos.height());		
 }
 
 bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 {
-	QPushButton *tmp = static_cast<QPushButton*>(watched);
+	//QToolButton *tmp = static_cast<QToolButton*>(watched);
 
-	if (event->type() == QEvent::HoverEnter) {
-		tmp->setStyleSheet("background: rgb(100,100,100)");
-		return true;
-	}
+	//if (event->type() == QEvent::HoverEnter) {
+	//	//tmp->setStyleSheet("background: rgb(100,100,100)");
+	//	if (tmp->menu()) {
+	//		tmp->menu()->exec(QPoint(200, 200));
+	//		tmp->setFocus();
+	//		//setFocus();
+	//	}
+	//	return false;
+	//}
 
-	if (event->type() == QEvent::HoverLeave) {
-		tmp->setStyleSheet("background: rgb(200,200,200)");
-		return true;
-	}
+	//if (event->type() == QEvent::HoverLeave) {
+	//	//tmp->setStyleSheet("background: rgb(200,200,200)");
+	//	return true;
+	//}
 	return false;
 }
 
 void NavigationBar::addElement(QIcon icon, QString caption, QMenu* menu)
 {
-	m_buttons.push_back(std::make_pair(new QPushButton(icon, ""), new QLabel(caption)));
-	m_buttons.back().first->setIconSize(QSize(ICON_W, ICON_W));
-	m_buttons.back().first->setMenu(menu);
-	m_buttons.back().first->setCursor(*myCursor);
-	m_buttons.back().first->installEventFilter(this);
-	m_buttons.back().second->setCursor(*myCursor);
+	m_buttons.push_back(new QToolButton());
+	m_buttons.back()->setIcon(icon);
+	m_buttons.back()->setText(caption);
+	m_buttons.back()->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
+	m_buttons.back()->setIconSize(QSize(ICON_W, ICON_W));
+	m_buttons.back()->setMenu(menu);
+	m_buttons.back()->setCursor(*myCursor);
+	m_buttons.back()->installEventFilter(this);
 //	Определяем самую длинную строчку, чтобы знать насколько экспандить меню
-	QFont font = m_buttons.back().second->font();
+	QFont font = m_buttons.back()->font();
 	QFontMetrics fm(font);
 	if (fm.width(caption) > maxTextWidth)
 		maxTextWidth = fm.width(caption) + 10;
 //	formLayout->setFormAlignment(Qt::AlignRight);
 //	formLayout->setLabelAlignment(Qt::AlignRight);
-	if (m_isRightExpand)
-		formLayout->addRow(m_buttons.back().first, m_buttons.back().second);
-	else
-		formLayout->addRow(m_buttons.back().second, m_buttons.back().first);
+	//if (m_isRightExpand)
+		formLayout->addRow(m_buttons.back());
+	//else
+		//formLayout->addRow(m_buttons.back().second, m_buttons.back().first);
 	setMaximumWidth(ICON_W + 4 + maxTextWidth);
 	update();
 }

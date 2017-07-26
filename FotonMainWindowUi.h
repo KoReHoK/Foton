@@ -1,15 +1,5 @@
 #pragma once
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QAction>
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTabWidget>
-#include <QSettings>
-
 #include "Tab1.h"
 #include "Tab2.h"
 #include "Tab3.h"

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "GroupSizeOfPlate.h"
 
 GroupSizeOfPlate::GroupSizeOfPlate(QWidget *parent)

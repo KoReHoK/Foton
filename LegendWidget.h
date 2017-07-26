@@ -1,8 +1,5 @@
 #pragma once
 
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QColorDialog>
 #include "SimpleWidget.h"
 
 

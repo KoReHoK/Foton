@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "GroupSizeOfCrystal.h"
 
 GroupSizeOfCrystal::GroupSizeOfCrystal(QWidget *parent)

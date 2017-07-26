@@ -1,5 +1,4 @@
 #pragma once
-#include <QtWidgets/QLabel>
 
 class ElseSettings : public QWidget
 {

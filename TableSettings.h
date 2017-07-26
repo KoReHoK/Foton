@@ -1,5 +1,4 @@
 #pragma once
-#include <QtWidgets/QTableWidget>
 
 class TableSettings : public QTableWidget
 {
