@@ -6,7 +6,7 @@ LegendWidget::LegendWidget(QWidget *parent)
 {
 	pushMe = new QPushButton("Добавить дефект", this);
 	pushMe->setGeometry(10, 10, 280, 30);
-	QObject::connect(pushMe, SIGNAL(clicked()), this, SLOT(createDefekt()));
+	connect(pushMe, &QPushButton::clicked, this, &LegendWidget::createDefekt);
 }
 
 LegendWidget::~LegendWidget()
@@ -20,8 +20,9 @@ void LegendWidget::createDefekt() {
 	defVector.push_back(sWidget);
 	resizeEvent();
 
-	QObject::connect(sWidget, SIGNAL(deleteWidget(uint)), this, SLOT(resizeVector(uint)));
-	QObject::connect(cDialog, SIGNAL(currentColorChanged(QColor)), sWidget, SLOT(colorChanged(QColor)));
+	connect(sWidget, &SimpleWidget::deleteWidget, this, &LegendWidget::resizeVector);
+	//TODO: изменить на безопасный формат connect
+	connect(cDialog, SIGNAL(currentColorChanged(QColor)), sWidget, SLOT(colorChanged(QColor)));
 }
 
 void LegendWidget::resizeEvent() {

@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Tab2Ui.h"
+#include "SettingsWidget.h"
+#include "LegendWidget.h"
+#include "navigationbar.h"
 
 class Tab2 : public QWidget
 {
@@ -10,7 +12,14 @@ public:
 	Tab2(QWidget *parent = Q_NULLPTR);
 	~Tab2();
 
-private:
-	Ui::Tab2 ui;
+protected:
+	SettingsWidget *settings;
+	LegendWidget	*legend;
+	QWidget			*widget;
+	QHBoxLayout		*hLayout;
+	QToolBox		*toolBox;
+	NavigationBar	*navBar;
 
+public slots:
+	void dialog(QString*);
 };

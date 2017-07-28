@@ -12,9 +12,10 @@ public:
 	void ExpandPressed();
 	void addElement(QIcon icon, QString caption, QMenu* menu = nullptr);
 protected:
+	QWidget	*testWidget;
 	QHBoxLayout *mainLayout;
 	QFormLayout *formLayout;
-	std::vector<QToolButton*> m_buttons;
+	std::vector<std::pair<QToolButton*, QMenu*>> m_buttons;
 	std::pair<QPushButton*, QLabel*> m_expandButton;
 	bool isExpand;
 	int maxTextWidth;
@@ -26,6 +27,5 @@ protected:
 public:
 	bool eventFilter(QObject *watched, QEvent *event) override;
 signals:
-
-	public slots :
+	void showDialog(QString*);
 };

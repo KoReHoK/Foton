@@ -168,9 +168,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_ElseSettings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="FotonMainWindowUi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_CameraSettings.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
@@ -264,18 +261,6 @@
   <ItemGroup>
     <ClInclude Include="QCameraFrame.h">
       <Filter>Header Files\Tab1\ImageFrame</Filter>
-    </ClInclude>
-    <ClInclude Include="Tab1Ui.h">
-      <Filter>Header Files\Tab1</Filter>
-    </ClInclude>
-    <ClInclude Include="Tab2Ui.h">
-      <Filter>Header Files\Tab2</Filter>
-    </ClInclude>
-    <ClInclude Include="Tab3Ui.h">
-      <Filter>Header Files\Tab3</Filter>
-    </ClInclude>
-    <ClInclude Include="FotonMainWindowUi.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadDll.h">
       <Filter>Header Files</Filter>

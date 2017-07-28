@@ -29,11 +29,15 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 	setAutoFillBackground(true);
 	setPalette(Pal);
 	show();
+
 	setStyleSheet("QPushButton{"
 		"border: 0px solid black;"
 		"background: rgb(200,200,200);}"
-		"QPushButton::menu-indicator{"
-		"subcontrol-position: bottom center;}"
+		"QToolButton{"
+		"border: 0px solid black;"
+		"background: rgb(200,200,200);}"
+		"QToolButton::menu-indicator{"
+		"subcontrol-position: right center;}"
 		"QMenu{"
 		"background: rgb(200,200,200);"
 		//"margin: 10px;"
@@ -42,19 +46,26 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 		"background: rgb(200,200,200);"
 		"border: 1px solid black;"
 		"padding: 0px;}"
+		"QMenu::icon::checked{"
+		"background: gray;"
+		"border: 1px inset gray;"
+		"position: absolute;"
+		"top: 1px;"
+		"right: 1px;"
+		"bottom: 1px;"
+		"left: 1px;}"
 		);
 	isExpand = false;
 	maxTextWidth = 0;
+	testWidget = new QWidget(parent);
+	testWidget->setGeometry(100, 100, 200, 200);
+	testWidget->raise();
 }
 
 void NavigationBar::ExpandPressed()
 {
 	isExpand = !isExpand;
 	m_expandButton.first->setChecked(isExpand);
-	for (const auto &b : m_buttons)
-	{
-		//b.second->setVisible(isExpand);
-	}
 
 	animation = new QPropertyAnimation(this, "geometry");
 	animation->setDuration(300);
@@ -66,10 +77,10 @@ void NavigationBar::ExpandPressed()
 	{
 		if (isExpand) {
 
-			for each (QToolButton *var in m_buttons)
+			for (const auto &b : m_buttons)
 			{
-				var->setFixedWidth(maxTextWidth + 32);
-				var->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
+				b.first->setFixedWidth(maxTextWidth + ICON_W + 4);
+				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
 			}
 
 			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
@@ -77,10 +88,10 @@ void NavigationBar::ExpandPressed()
 			
 		else {
 
-			for each (QToolButton *var in m_buttons)
+			for (const auto &b : m_buttons)
 			{
-				var->setFixedWidth(32);
-				var->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
+				b.first->setFixedWidth(32);
+				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
 			}
 
 			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4, geom.height()));
@@ -112,46 +123,56 @@ void NavigationBar::resizeEvent(QResizeEvent *event)
 
 bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 {
-	//QToolButton *tmp = static_cast<QToolButton*>(watched);
+	QToolButton *tmp = dynamic_cast<QToolButton*>(watched);
 
-	//if (event->type() == QEvent::HoverEnter) {
-	//	//tmp->setStyleSheet("background: rgb(100,100,100)");
-	//	if (tmp->menu()) {
-	//		tmp->menu()->exec(QPoint(200, 200));
-	//		tmp->setFocus();
-	//		//setFocus();
-	//	}
-	//	return false;
-	//}
+	if (!tmp) return false;	// выходит из функции, если не QToolButton
+	if (event->type() == QEvent::MouseButtonRelease) 
+		emit showDialog(&tmp->text());
 
-	//if (event->type() == QEvent::HoverLeave) {
-	//	//tmp->setStyleSheet("background: rgb(200,200,200)");
-	//	return true;
-	//}
+	if (event->type() == QEvent::HoverEnter) {
+		tmp->setStyleSheet("background: rgb(100,100,100)");
+		for (const auto vec : m_buttons) {
+			if (vec.first == tmp && vec.second) {
+				vec.second->exec(QWidget::mapToGlobal(QPoint(tmp->x() + tmp->width(), tmp->y())));
+				return true;
+			}	
+		}
+	}
+
+	if (event->type() == QEvent::HoverLeave) {
+		tmp->setStyleSheet("background: rgb(200,200,200)");
+		for (const auto vec : m_buttons) {
+			if (vec.first == tmp && vec.second) {
+				vec.second->hide();
+				return true;
+			}
+		}
+		return true;
+	}
 	return false;
 }
 
 void NavigationBar::addElement(QIcon icon, QString caption, QMenu* menu)
 {
-	m_buttons.push_back(new QToolButton());
-	m_buttons.back()->setIcon(icon);
-	m_buttons.back()->setText(caption);
-	m_buttons.back()->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
-	m_buttons.back()->setIconSize(QSize(ICON_W, ICON_W));
-	m_buttons.back()->setMenu(menu);
-	m_buttons.back()->setCursor(*myCursor);
-	m_buttons.back()->installEventFilter(this);
+	m_buttons.push_back(std::make_pair(new QToolButton(), menu));
+	m_buttons.back().first->setIcon(icon);
+	m_buttons.back().first->setText(caption);
+	m_buttons.back().first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
+	m_buttons.back().first->setIconSize(QSize(ICON_W, ICON_W));
+	m_buttons.back().first->setCursor(*myCursor);
+	if(menu) m_buttons.back().second->setCursor(*myCursor);
+	m_buttons.back().first->installEventFilter(this);
 //	Определяем самую длинную строчку, чтобы знать насколько экспандить меню
-	QFont font = m_buttons.back()->font();
+	QFont font = m_buttons.back().first->font();
 	QFontMetrics fm(font);
 	if (fm.width(caption) > maxTextWidth)
 		maxTextWidth = fm.width(caption) + 10;
 //	formLayout->setFormAlignment(Qt::AlignRight);
 //	formLayout->setLabelAlignment(Qt::AlignRight);
-	//if (m_isRightExpand)
-		formLayout->addRow(m_buttons.back());
-	//else
-		//formLayout->addRow(m_buttons.back().second, m_buttons.back().first);
+	if (m_isRightExpand)
+		formLayout->addRow(m_buttons.back().first);
+	else
+		formLayout->addRow(m_buttons.back().second, m_buttons.back().first);
 	setMaximumWidth(ICON_W + 4 + maxTextWidth);
 	update();
 }

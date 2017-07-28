@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "FotonMainWindow.h"
-#include <QtWidgets/QApplication>
 #include "LoadDll.h"
 
 int main(int argc, char *argv[])

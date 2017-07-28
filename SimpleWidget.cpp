@@ -9,7 +9,7 @@ SimpleWidget::SimpleWidget(QColor col, QWidget * parent) : color(col)
 	delDef->setGeometry(220, 10, 50, 30);
 	repaint();
 
-	QObject::connect(delDef, SIGNAL(clicked()), this, SLOT(delWidget()));
+	connect(delDef, &QPushButton::clicked, this, &SimpleWidget::delWidget);
 }
 
 SimpleWidget::~SimpleWidget()

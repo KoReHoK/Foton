@@ -1,6 +1,6 @@
 #pragma once
-
-#include "Tab1Ui.h"
+#include "QCameraFrame.h"
+#include "navigationbar.h"
 
 class Tab1 : public QWidget
 {
@@ -10,7 +10,16 @@ public:
 	Tab1(QWidget *parent = Q_NULLPTR);
 	~Tab1();
 
-private:
-	Ui::Tab1 ui;
-	
+protected:
+	QCameraFrame *cameraFrame;
+	NavigationBar *navBar;
+	QDockWidget	*mapWidget;
+
+	QVBoxLayout *vLayout;
+	QHBoxLayout *hLayout;
+	QMenu *objectivesMenu;
+	QMenu *joystickMenu;
+
+public slots:
+	void dialog(QString*);
 };

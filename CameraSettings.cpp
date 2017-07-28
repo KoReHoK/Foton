@@ -32,7 +32,7 @@ void CameraSettings::addSettings(QString str)
 	formLayout->addWidget(tmp.sliderSettings, ssettings.size(), 1, Qt::AlignTop);
 	formLayout->addWidget(tmp.quntitySettings, ssettings.size(), 2, Qt::AlignTop);
 
-	QObject::connect(tmp.sliderSettings, SIGNAL(valueChanged(int)), tmp.quntitySettings, SLOT(setNum(int)));
+	connect(tmp.sliderSettings, SIGNAL(valueChanged(int)), tmp.quntitySettings, SLOT(setNum(int)));
 }
 
 void CameraSettings::addFieldSettings(QString str)

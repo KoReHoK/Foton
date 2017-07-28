@@ -87,7 +87,6 @@
     <ClCompile Include="TableSettings.cpp" />
     <ClCompile Include="ElseSettings.cpp" />
     <ClCompile Include="FotonMainWindow.cpp" />
-    <ClCompile Include="FotonMainWindowUi.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_CameraSettings.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -191,7 +190,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FotonMainWindowUi.h" />
     <CustomBuild Include="SimpleWidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing SimpleWidget.h...</Message>
@@ -214,9 +212,6 @@
     </CustomBuild>
     <ClInclude Include="LoadDll.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Tab1Ui.h" />
-    <ClInclude Include="Tab2Ui.h" />
-    <ClInclude Include="Tab3Ui.h" />
     <CustomBuild Include="TableSettings.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing TableSettings.h...</Message>

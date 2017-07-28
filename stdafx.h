@@ -13,6 +13,7 @@
 
 #include <QEvent>
 
+#include <QFileDialog>
 #include <QFormLayout>
 #include <QFrame>
 

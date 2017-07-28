@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Tab3Ui.h"
+#include "TableSettings.h"
+#include "ElseSettings.h"
+#include "CameraSettings.h"
 
 class Tab3 : public QWidget
 {
@@ -10,7 +12,15 @@ public:
 	Tab3(QWidget *parent = Q_NULLPTR);
 	~Tab3();
 
-private:
-	Ui::Tab3 ui;
-
+protected:
+	CameraSettings	*visibleCamera;
+	CameraSettings	*ikCamera;
+	TableSettings	*buttonsPult;
+	TableSettings	*hotButtons;
+	ElseSettings	*settings;
+	QToolBox		*toolBox;
+	QWidget			*cameraWidget;
+	QWidget			*gistWidget;
+	//QImage			*etiketka;
+	QGridLayout		*gLayout;
 };
