@@ -1,6 +1,4 @@
 #pragma once
-#include <QtWidgets/QLayout>
-#include <QtWidgets/QGroupBox>
 #include "GroupSizeOfPlate.h"
 #include "GroupSizeOfCrystal.h"
 #include "OffsetGroup.h"

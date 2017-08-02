@@ -10,24 +10,22 @@ Tab1::Tab1(QWidget *parent)
 	hLayout = new QHBoxLayout(this);
 	hLayout->addWidget(cameraFrame, Qt::AlignLeft);
 
-	objectivesMenu = new QMenu(this);
-	QList<QAction*> listMenu;
-	listMenu << new QAction("X5")
-		<< new QAction("X10")
-		<< new QAction("X20")
-		<< new QAction("IX5")
-		<< new QAction("IX10")
-		<< new QAction("IX20");
-	objectivesMenu->addActions(listMenu);
+	QList<QPushButton*> listObjectives;
+	listObjectives << new QPushButton("X5")
+		<< new QPushButton("X10")
+		<< new QPushButton("X20")
+		<< new QPushButton("IX5")
+		<< new QPushButton("IX10")
+		<< new QPushButton("IX20");
+	objectivesMenu = new MenuWidget(&listObjectives, this);
 
-	joystickMenu = new QMenu(this);
-	QList<QAction*> listJoystik;
-	listJoystik << new QAction("Медленно")
-		<< new QAction("Нормально")
-		<< new QAction("Быстро")
-		<< new QAction("Рывки")
-		<< new QAction("В зоне");
-	joystickMenu->addActions(listJoystik);
+	QList<QPushButton*> listJoystik;
+	listJoystik << new QPushButton("Медленно")
+		<< new QPushButton("Нормально")
+		<< new QPushButton("Быстро")
+		<< new QPushButton("Рывки")
+		<< new QPushButton("В зоне");
+	joystickMenu = new MenuWidget(&listJoystik, this);
 
 	navBar = new NavigationBar(true, this);
 	navBar->setGeometry(0, 9, 38, 476);
@@ -44,19 +42,30 @@ Tab1::Tab1(QWidget *parent)
 	navBar->addElement(QIcon(":/icons/Resources/icons/inversion.png"), "Инверсия цвета");
 	navBar->addElement(QIcon(":/icons/Resources/icons/layer.png"), "Слои");
 	navBar->addElement(QIcon(":/icons/Resources/icons/panorama.png"), "Панорама кристалла");
-	navBar->addElement(QIcon(":/icons/Resources/icons/objective.png"), "Оъектив", objectivesMenu);
+	navBar->addElement(QIcon(":/icons/Resources/icons/objective.png"), "Объектив", objectivesMenu);
 	navBar->addElement(QIcon(":/icons/Resources/icons/joystick.png"), "Режим джойстика", joystickMenu);
+
+	defBar = new NavigationBar(false, this);
+	defBar->setGeometry(400, 9, 38, 476);
+	defBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
+	defBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
+	defBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");
 
 	connect(navBar, &NavigationBar::showDialog, this, &Tab1::dialog);
 }
 
-Tab1::~Tab1()
-{
-}
-
 void Tab1::dialog(QString *tmp) {
-	//if (*tmp == "Открыть")
-	//	QString str = QFileDialog::getOpenFileName(0, "Открыть файл", "*.cpp *.h");
-	//if (*tmp == "Сохранить")
-	//	QString str = QFileDialog::getSaveFileName(0, "Сохранить файл", "*.cpp *.h");
+	if (*tmp == "Панорама кристалла") {
+
+		scene = new QGraphicsScene();
+		QGraphicsItem *item1 = new  QGraphicsPixmapItem(QPixmap(":/icons/Resources/icons/endControl.png"));
+		item1->setPos(0, 0);
+		QGraphicsItem *item2 = new  QGraphicsPixmapItem(QPixmap(":/icons/Resources/icons/toFirst.png"));
+		item1->setPos(300, 0);
+		scene->addItem(item1);
+		scene->addItem(item2);
+
+		view = new QGraphicsView(scene);
+		view->show();
+	}
 }

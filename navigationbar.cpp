@@ -5,7 +5,6 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 {
 	myCursor = new QCursor(Qt::PointingHandCursor);
 	m_isRightExpand = isRightExpand;
-	//mainLayout = new QVBoxLayout;
 	formLayout = new QFormLayout;
 	formLayout->setVerticalSpacing(2);
 	formLayout->setHorizontalSpacing(0);
@@ -18,10 +17,19 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 	m_expandButton.first->installEventFilter(this);
 	m_expandButton.second->setVisible(0);
 	m_expandButton.second->setMinimumWidth(0);
-	if (m_isRightExpand)
-		formLayout->addRow(m_expandButton.first, m_expandButton.second);
-	else
-		formLayout->addRow(m_expandButton.second, m_expandButton.first);
+
+	if (m_isRightExpand) {
+		m_expandButton.first->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+		formLayout->addRow(m_expandButton.first);
+		formLayout->setAlignment(Qt::AlignmentFlag::AlignLeft);
+	}
+		
+	else {
+		m_expandButton.first->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+		formLayout->addRow(m_expandButton.first);
+		formLayout->setAlignment(Qt::AlignmentFlag::AlignRight);
+	}
+		
 	connect(m_expandButton.first, &QPushButton::clicked, this, &NavigationBar::ExpandPressed);
 	QPalette Pal(palette());
 	// устанавливаем цвет фона 
@@ -42,24 +50,9 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 		"background: rgb(200,200,200);"
 		//"margin: 10px;"
 		"padding: 0px;}"
-		"QMenu::item::selected{"
-		"background: rgb(200,200,200);"
-		"border: 1px solid black;"
-		"padding: 0px;}"
-		"QMenu::icon::checked{"
-		"background: gray;"
-		"border: 1px inset gray;"
-		"position: absolute;"
-		"top: 1px;"
-		"right: 1px;"
-		"bottom: 1px;"
-		"left: 1px;}"
 		);
 	isExpand = false;
 	maxTextWidth = 0;
-	testWidget = new QWidget(parent);
-	testWidget->setGeometry(100, 100, 200, 200);
-	testWidget->raise();
 }
 
 void NavigationBar::ExpandPressed()
@@ -100,13 +93,30 @@ void NavigationBar::ExpandPressed()
 	}
 	else
 	{
-		if (isExpand)
+		if (isExpand) {
+
+			for (const auto &b : m_buttons)
+			{
+				b.first->setFixedWidth(maxTextWidth + ICON_W + 4);
+				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
+			}
+
 			animation->setEndValue(QRect(geom.x() - maxTextWidth, geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
-		else
+		}
+			
+		else {
+
+			for (const auto &b : m_buttons)
+			{
+				b.first->setFixedWidth(32);
+				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
+			}
+
 			animation->setEndValue(QRect(geom.x() + geom.width() - (ICON_W + 4), geom.y(), ICON_W + 4, geom.height()));
+		}
+			
 	}
 	animation->start();
-	//update();
 }
 
 void NavigationBar::resizeEvent(QResizeEvent *event)
@@ -133,7 +143,8 @@ bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 		tmp->setStyleSheet("background: rgb(100,100,100)");
 		for (const auto vec : m_buttons) {
 			if (vec.first == tmp && vec.second) {
-				vec.second->exec(QWidget::mapToGlobal(QPoint(tmp->x() + tmp->width(), tmp->y())));
+				vec.second->setGeometry(tmp->x() + tmp->width() - 9, tmp->y(), vec.second->width(), vec.second->height());
+				vec.second->show();
 				return true;
 			}	
 		}
@@ -143,8 +154,10 @@ bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 		tmp->setStyleSheet("background: rgb(200,200,200)");
 		for (const auto vec : m_buttons) {
 			if (vec.first == tmp && vec.second) {
-				vec.second->hide();
-				return true;
+				//if (vec.second->getState()) {
+					vec.second->hide();
+					return true;
+				//}	
 			}
 		}
 		return true;
@@ -152,7 +165,7 @@ bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 	return false;
 }
 
-void NavigationBar::addElement(QIcon icon, QString caption, QMenu* menu)
+void NavigationBar::addElement(QIcon icon, QString caption, MenuWidget* menu)
 {
 	m_buttons.push_back(std::make_pair(new QToolButton(), menu));
 	m_buttons.back().first->setIcon(icon);
@@ -167,12 +180,18 @@ void NavigationBar::addElement(QIcon icon, QString caption, QMenu* menu)
 	QFontMetrics fm(font);
 	if (fm.width(caption) > maxTextWidth)
 		maxTextWidth = fm.width(caption) + 10;
-//	formLayout->setFormAlignment(Qt::AlignRight);
-//	formLayout->setLabelAlignment(Qt::AlignRight);
+
 	if (m_isRightExpand)
+	{
+		m_buttons.back().first->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
 		formLayout->addRow(m_buttons.back().first);
+	}
 	else
-		formLayout->addRow(m_buttons.back().second, m_buttons.back().first);
+	{
+		m_buttons.back().first->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+		formLayout->addRow(m_buttons.back().first);
+	}
+		
 	setMaximumWidth(ICON_W + 4 + maxTextWidth);
 	update();
 }

@@ -3,6 +3,7 @@
 #include <utility>
 #include <vector>
 #include <string>
+#include "MenuWidget.h"
 
 class NavigationBar : public QWidget
 {
@@ -10,12 +11,10 @@ class NavigationBar : public QWidget
 public:
 	explicit NavigationBar(bool isRightExpand = true, QWidget *parent = 0);
 	void ExpandPressed();
-	void addElement(QIcon icon, QString caption, QMenu* menu = nullptr);
+	void addElement(QIcon icon, QString caption, MenuWidget* menu = nullptr);
 protected:
-	QWidget	*testWidget;
-	QHBoxLayout *mainLayout;
 	QFormLayout *formLayout;
-	std::vector<std::pair<QToolButton*, QMenu*>> m_buttons;
+	std::vector<std::pair<QToolButton*, MenuWidget*>> m_buttons;
 	std::pair<QPushButton*, QLabel*> m_expandButton;
 	bool isExpand;
 	int maxTextWidth;

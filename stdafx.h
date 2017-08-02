@@ -17,6 +17,7 @@
 #include <QFormLayout>
 #include <QFrame>
 
+#include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
 #include <QGridLayout>
@@ -39,8 +40,11 @@
 #include <QOpenGLWidget>
 
 #include <QPainter>
+#include <QPixmap>
 #include <QPropertyAnimation>
 #include <QPushButton>
+
+#include <QRadioButton>
 
 #include <QSettings>
 #include <QSlider>
@@ -50,6 +54,7 @@
 #include <QTableWidget>
 #include <QTabWidget>
 #include <QTime>
+#include <QToolBar>
 #include <QToolBox>
 #include <QToolButton>
 

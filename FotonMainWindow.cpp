@@ -4,49 +4,70 @@
 FotonMainWindow::FotonMainWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
-	setupUi(this);
-	loadSettings(this);
+	setupCentralWidget();
+	setupStatusBar();
+	setupToolBar();
+
+	loadSettings();
 }
 
 FotonMainWindow::~FotonMainWindow()
 {
-	saveSettings(this);
+	saveSettings();
 }
 
-void FotonMainWindow::setupCentralWidget(QMainWindow *FotonMainWindowClass)
+void FotonMainWindow::setupCentralWidget()
 {
-	centralWidget = new QTabWidget(FotonMainWindowClass);
-	centralWidget->setObjectName(QStringLiteral("centralWidget"));
-	FotonMainWindowClass->setCentralWidget(centralWidget);
+	centralWidget = new QTabWidget(this);
+	this->setCentralWidget(centralWidget);
 
-	settings = new QSettings("config.ini", QSettings::Format::IniFormat, FotonMainWindowClass);
+	settings = new QSettings("config.ini", QSettings::Format::IniFormat, this);
 
-	tab1 = new Tab1();
-	tab2 = new Tab2();
-	tab3 = new Tab3();
+	tab1 = new Tab1(centralWidget);
+	tab2 = new Tab2(centralWidget);
+	tab3 = new Tab3(centralWidget);
 
 	centralWidget->addTab(tab1, "Осмотр");
 	centralWidget->addTab(tab2, "Карта");
 	centralWidget->addTab(tab3, "Настройки");
 }
 
-void FotonMainWindow::setupUi(QMainWindow *FotonMainWindowClass)
+void FotonMainWindow::setupStatusBar()
 {
-	if (FotonMainWindowClass->objectName().isEmpty())
-		FotonMainWindowClass->setObjectName(QStringLiteral("FotonMainWindowClass"));
-
-	setupCentralWidget(FotonMainWindowClass);
-	statusBar = new QStatusBar(FotonMainWindowClass);
-	statusBar->setObjectName(QStringLiteral("statusBar"));
-	FotonMainWindowClass->setStatusBar(statusBar);
+	statusBar = new QStatusBar(this);
+	statusBar->addWidget(new QLabel("StatusBar"));
+	this->setStatusBar(statusBar);
 }
 
-void FotonMainWindow::saveSettings(QMainWindow *FotonMainWindowClass)
+void FotonMainWindow::setupToolBar()
 {
-	settings->setValue("geometry", FotonMainWindowClass->geometry());
+	toolBar = new QToolBar(this);
+	toolBar->setMovable(false);
+
+	QVector<QIcon*> icons;
+	icons.push_back(new QIcon(":/icons/Resources/icons/toFirst.png"));
+	icons.push_back(new QIcon(":/icons/Resources/icons/next.png"));
+	icons.push_back(new QIcon(":/icons/Resources/icons/prev.png"));
+	icons.push_back(new QIcon(":/icons/Resources/icons/liftUp.png"));
+	icons.push_back(new QIcon(":/icons/Resources/icons/liftDown.png"));
+
+	QVector<QIcon*>::const_iterator i;
+	for (i = icons.begin(); i != icons.end(); ++i) {
+		QToolButton *tmp;
+		tmp = new QToolButton();
+		tmp->setIcon(**i);
+		toolBar->addWidget(tmp);
+	}
+
+	this->addToolBar(toolBar);
 }
 
-void FotonMainWindow::loadSettings(QMainWindow *FotonMainWindowClass)
+void FotonMainWindow::saveSettings()
 {
-	FotonMainWindowClass->setGeometry(settings->value("geometry", QRect(200, 200, 600, 600)).toRect());
+	settings->setValue("geometry", this->geometry());
+}
+
+void FotonMainWindow::loadSettings()
+{
+	this->setGeometry(settings->value("geometry", QRect(200, 200, 600, 600)).toRect());
 }

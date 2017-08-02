@@ -12,20 +12,21 @@ public:
 	FotonMainWindow(QWidget *parent = Q_NULLPTR);
 	~FotonMainWindow();
 
-protected:
+private:
 	Tab1 *tab1;
 	Tab2 *tab2;
 	Tab3 *tab3;
 
 	QTabWidget	*centralWidget;
-	QStatusBar *statusBar;
+	QStatusBar  *statusBar;
+	QToolBar	*toolBar;
 	QSettings	*settings;
 
-	void setupCentralWidget(QMainWindow *FotonMainWindowClass);
+private:
+	void setupCentralWidget();
+	void setupStatusBar();
+	void setupToolBar();
 
-public:
-
-	void setupUi(QMainWindow *FotonMainWindowClass);
-	void saveSettings(QMainWindow *FotonMainWindowClass);
-	void loadSettings(QMainWindow *FotonMainWindowClass);
+	void saveSettings();
+	void loadSettings();
 };

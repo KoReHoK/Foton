@@ -1,9 +1,4 @@
 #pragma once
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QSlider>
-#include <QtWidgets/QGridLayout>
 
 class OffsetGroup : public QGroupBox
 {

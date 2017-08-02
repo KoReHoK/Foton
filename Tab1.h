@@ -8,17 +8,17 @@ class Tab1 : public QWidget
 
 public:
 	Tab1(QWidget *parent = Q_NULLPTR);
-	~Tab1();
 
 protected:
+	QGraphicsScene	*scene;
+	QGraphicsView	*view;
 	QCameraFrame *cameraFrame;
 	NavigationBar *navBar;
-	QDockWidget	*mapWidget;
+	NavigationBar *defBar;
 
-	QVBoxLayout *vLayout;
 	QHBoxLayout *hLayout;
-	QMenu *objectivesMenu;
-	QMenu *joystickMenu;
+	MenuWidget *objectivesMenu;
+	MenuWidget *joystickMenu;
 
 public slots:
 	void dialog(QString*);

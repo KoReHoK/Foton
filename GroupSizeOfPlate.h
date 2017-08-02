@@ -1,9 +1,5 @@
 #pragma once
 
-#include <QtWidgets/QGridLayout>
-#include <QtWidgets/QGroupBox>
-#include <QtWidgets/QRadioButton>
-
 class GroupSizeOfPlate : public QGroupBox
 {
 	Q_OBJECT
