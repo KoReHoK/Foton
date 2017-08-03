@@ -15,8 +15,8 @@ MenuWidget::MenuWidget(QList<QPushButton*> *list, QWidget *parent) : QWidget(par
 	}
 		
 
-	this->setFixedSize(100, height);
-	this->hide();
+	setFixedSize(100, height);
+	hide();
 
 	setStyleSheet("background: rgb(200,200,200)");
 }

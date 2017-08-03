@@ -13,14 +13,13 @@ public:
 	void ExpandPressed();
 	void addElement(QIcon icon, QString caption, MenuWidget* menu = nullptr);
 protected:
-	QFormLayout *formLayout;
+	QVBoxLayout *vLayout;
 	std::vector<std::pair<QToolButton*, MenuWidget*>> m_buttons;
-	std::pair<QPushButton*, QLabel*> m_expandButton;
+	QToolButton* m_expandButton;
 	bool isExpand;
 	int maxTextWidth;
 	QPropertyAnimation *animation = nullptr;
 	QCursor	*myCursor;
-	void resizeEvent(QResizeEvent * event);
 	const int ICON_W = 32;
 	bool m_isRightExpand;
 public:

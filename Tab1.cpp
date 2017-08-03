@@ -4,6 +4,8 @@
 Tab1::Tab1(QWidget *parent)
 	: QWidget(parent)
 {
+	scene = nullptr;
+
 	cameraFrame = new QCameraFrame();
 	cameraFrame->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
 
@@ -28,7 +30,6 @@ Tab1::Tab1(QWidget *parent)
 	joystickMenu = new MenuWidget(&listJoystik, this);
 
 	navBar = new NavigationBar(true, this);
-	navBar->setGeometry(0, 9, 38, 476);
 	navBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
 	navBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
 	navBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");
@@ -46,7 +47,6 @@ Tab1::Tab1(QWidget *parent)
 	navBar->addElement(QIcon(":/icons/Resources/icons/joystick.png"), "Режим джойстика", joystickMenu);
 
 	defBar = new NavigationBar(false, this);
-	defBar->setGeometry(400, 9, 38, 476);
 	defBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");
@@ -55,7 +55,7 @@ Tab1::Tab1(QWidget *parent)
 }
 
 void Tab1::dialog(QString *tmp) {
-	if (*tmp == "Панорама кристалла") {
+	if ((*tmp == "Панорама кристалла") && !scene) {
 
 		scene = new QGraphicsScene();
 		QGraphicsItem *item1 = new  QGraphicsPixmapItem(QPixmap(":/icons/Resources/icons/endControl.png"));
@@ -68,4 +68,10 @@ void Tab1::dialog(QString *tmp) {
 		view = new QGraphicsView(scene);
 		view->show();
 	}
+}
+
+void Tab1::resizeEvent(QResizeEvent * event)
+{
+	navBar->move(0, 9);
+	defBar->move(width() - 36, 9);
 }

@@ -20,6 +20,9 @@ protected:
 	MenuWidget *objectivesMenu;
 	MenuWidget *joystickMenu;
 
+protected:
+	void resizeEvent(QResizeEvent *event) override;
+
 public slots:
 	void dialog(QString*);
 };

@@ -5,32 +5,28 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 {
 	myCursor = new QCursor(Qt::PointingHandCursor);
 	m_isRightExpand = isRightExpand;
-	formLayout = new QFormLayout;
-	formLayout->setVerticalSpacing(2);
-	formLayout->setHorizontalSpacing(0);
-	formLayout->setMargin(0);
-	setLayout(formLayout);
-	m_expandButton = std::make_pair(new QPushButton(QIcon(":/icons/Resources/icons/expand.png"), ""), new QLabel(""));
-	m_expandButton.first->setIconSize(QSize(ICON_W, ICON_W));
-	m_expandButton.first->setCursor(*myCursor);
-	m_expandButton.first->setAttribute(Qt::WA_Hover);	// необходимо для обработки событий QEvent::HoverEnter и QEvent::HoverLeave
-	m_expandButton.first->installEventFilter(this);
-	m_expandButton.second->setVisible(0);
-	m_expandButton.second->setMinimumWidth(0);
+	vLayout = new QVBoxLayout();
+	vLayout->setMargin(0);
+	setLayout(vLayout);
+	m_expandButton = new QToolButton();
+	m_expandButton->setIcon(QIcon(":/icons/Resources/icons/expand.png"));
+	m_expandButton->setIconSize(QSize(ICON_W, ICON_W));
+	m_expandButton->setCursor(*myCursor);
+	m_expandButton->setAttribute(Qt::WA_Hover);	// необходимо для обработки событий QEvent::HoverEnter и QEvent::HoverLeave
+	m_expandButton->installEventFilter(this);
+	vLayout->addWidget(m_expandButton);
 
 	if (m_isRightExpand) {
-		m_expandButton.first->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-		formLayout->addRow(m_expandButton.first);
-		formLayout->setAlignment(Qt::AlignmentFlag::AlignLeft);
+		m_expandButton->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
+		vLayout->setAlignment(Qt::AlignmentFlag::AlignLeft);
 	}
 		
 	else {
-		m_expandButton.first->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-		formLayout->addRow(m_expandButton.first);
-		formLayout->setAlignment(Qt::AlignmentFlag::AlignRight);
+		m_expandButton->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+		vLayout->setAlignment(Qt::AlignmentFlag::AlignRight);
 	}
 		
-	connect(m_expandButton.first, &QPushButton::clicked, this, &NavigationBar::ExpandPressed);
+	connect(m_expandButton, &QPushButton::clicked, this, &NavigationBar::ExpandPressed);
 	QPalette Pal(palette());
 	// устанавливаем цвет фона 
 	Pal.setColor(QPalette::Background, QColor(200, 200, 200));
@@ -58,84 +54,41 @@ NavigationBar::NavigationBar(bool isRightExpand, QWidget *parent) : QWidget(pare
 void NavigationBar::ExpandPressed()
 {
 	isExpand = !isExpand;
-	m_expandButton.first->setChecked(isExpand);
+//	m_expandButton->setChecked(isExpand);
+	
+ 	QRect geom = geometry();
+	if (isExpand) {
+		for (const auto &b : m_buttons)
+			b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
+	}
+	else {
+		for (const auto &b : m_buttons)
+			b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonIconOnly);
+	}
 
 	animation = new QPropertyAnimation(this, "geometry");
 	animation->setDuration(300);
- 	QRect geom = geometry();
-	if (isExpand)
-		geom.setWidth(ICON_W + 4);
 	animation->setStartValue(geom);
-	if (m_isRightExpand)
-	{
-		if (isExpand) {
 
-			for (const auto &b : m_buttons)
-			{
-				b.first->setFixedWidth(maxTextWidth + ICON_W + 4);
-				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
-			}
+	if(m_isRightExpand && isExpand)
+		animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
+	
+	if(m_isRightExpand && !isExpand)
+		animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4, geom.height()));
 
-			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
-		}
-			
-		else {
+	if(!m_isRightExpand && isExpand)
+		animation->setEndValue(QRect(geom.x() - maxTextWidth, geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
 
-			for (const auto &b : m_buttons)
-			{
-				b.first->setFixedWidth(32);
-				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
-			}
+	if(!m_isRightExpand && !isExpand)
+		animation->setEndValue(QRect(geom.x() + geom.width() - (ICON_W + 4), geom.y(), ICON_W + 4, geom.height()));
 
-			animation->setEndValue(QRect(geom.x(), geom.y(), ICON_W + 4, geom.height()));
-		}
-			
-	}
-	else
-	{
-		if (isExpand) {
-
-			for (const auto &b : m_buttons)
-			{
-				b.first->setFixedWidth(maxTextWidth + ICON_W + 4);
-				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
-			}
-
-			animation->setEndValue(QRect(geom.x() - maxTextWidth, geom.y(), ICON_W + 4 + maxTextWidth, geom.height()));
-		}
-			
-		else {
-
-			for (const auto &b : m_buttons)
-			{
-				b.first->setFixedWidth(32);
-				b.first->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextBesideIcon);
-			}
-
-			animation->setEndValue(QRect(geom.x() + geom.width() - (ICON_W + 4), geom.y(), ICON_W + 4, geom.height()));
-		}
-			
-	}
 	animation->start();
-}
-
-void NavigationBar::resizeEvent(QResizeEvent *event)
-{
-	if (animation && animation->state() == QAbstractAnimation::Running)
-		return;
-	QRect pos = geometry();
-
-	if (isExpand)
-		setGeometry(pos.x(), pos.y(), ICON_W + 4 + maxTextWidth, pos.height());
-	else 
-		setGeometry(pos.x(), pos.y(), ICON_W + 4, pos.height());		
 }
 
 bool NavigationBar::eventFilter(QObject * watched, QEvent * event)
 {
 	QToolButton *tmp = dynamic_cast<QToolButton*>(watched);
 
-	if (!tmp) return false;	// выходит из функции, если не QToolButton
 	if (event->type() == QEvent::MouseButtonRelease) 
 		emit showDialog(&tmp->text());
 
@@ -184,14 +137,18 @@ void NavigationBar::addElement(QIcon icon, QString caption, MenuWidget* menu)
 	if (m_isRightExpand)
 	{
 		m_buttons.back().first->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
-		formLayout->addRow(m_buttons.back().first);
+		vLayout->addWidget(m_buttons.back().first);
 	}
 	else
 	{
 		m_buttons.back().first->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
-		formLayout->addRow(m_buttons.back().first);
+		vLayout->addWidget(m_buttons.back().first);
 	}
 		
-	setMaximumWidth(ICON_W + 4 + maxTextWidth);
-	update();
+	vLayout->addWidget(m_buttons.back().first);
+
+	QRect pos = geometry();
+	pos.setWidth(ICON_W + 4);
+	pos.setHeight(height() + ICON_W);
+	setGeometry(pos);
 }

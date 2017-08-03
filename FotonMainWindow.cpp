@@ -19,7 +19,7 @@ FotonMainWindow::~FotonMainWindow()
 void FotonMainWindow::setupCentralWidget()
 {
 	centralWidget = new QTabWidget(this);
-	this->setCentralWidget(centralWidget);
+	setCentralWidget(centralWidget);
 
 	settings = new QSettings("config.ini", QSettings::Format::IniFormat, this);
 
@@ -36,7 +36,7 @@ void FotonMainWindow::setupStatusBar()
 {
 	statusBar = new QStatusBar(this);
 	statusBar->addWidget(new QLabel("StatusBar"));
-	this->setStatusBar(statusBar);
+	setStatusBar(statusBar);
 }
 
 void FotonMainWindow::setupToolBar()
@@ -59,15 +59,15 @@ void FotonMainWindow::setupToolBar()
 		toolBar->addWidget(tmp);
 	}
 
-	this->addToolBar(toolBar);
+	addToolBar(toolBar);
 }
 
 void FotonMainWindow::saveSettings()
 {
-	settings->setValue("geometry", this->geometry());
+	settings->setValue("geometry", geometry());
 }
 
 void FotonMainWindow::loadSettings()
 {
-	this->setGeometry(settings->value("geometry", QRect(200, 200, 600, 600)).toRect());
+	setGeometry(settings->value("geometry", QRect(200, 200, 600, 600)).toRect());
 }
