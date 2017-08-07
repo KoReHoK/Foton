@@ -14,7 +14,7 @@ protected:
 	void resizeEvent();
 
 public:
-	LegendWidget(QWidget *parent = Q_NULLPTR);
+	explicit LegendWidget(QWidget *parent = Q_NULLPTR);
 	~LegendWidget();
 
 public slots:

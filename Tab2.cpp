@@ -23,10 +23,6 @@ Tab2::Tab2(QWidget *parent)
 	hLayout->addWidget(toolBox, 0, Qt::AlignRight);
 }
 
-Tab2::~Tab2()
-{
-}
-
 void Tab2::dialog(QString *tmp) {
 	if(*tmp == "Открыть")
 		QString str = QFileDialog::getOpenFileName(0, "Открыть файл", "*.cpp *.h");

@@ -26,5 +26,6 @@
         <file>Resources/icons/objective.png</file>
         <file>Resources/icons/joystick.png</file>
         <file>Resources/icons/handLayer.png</file>
+        <file>Resources/icons/analyse.png</file>
     </qresource>
 </RCC>

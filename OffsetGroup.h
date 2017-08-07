@@ -16,6 +16,6 @@ protected:
 
 	QGridLayout *gLayout;
 public:
-	OffsetGroup(QWidget *parent = Q_NULLPTR);
+	explicit OffsetGroup(QWidget *parent = Q_NULLPTR);
 	~OffsetGroup();
 };

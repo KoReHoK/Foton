@@ -3,13 +3,14 @@
 #include "Tab1.h"
 #include "Tab2.h"
 #include "Tab3.h"
+#include "NewAnalysDialog.h"
 
 class FotonMainWindow : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	FotonMainWindow(QWidget *parent = Q_NULLPTR);
+	explicit FotonMainWindow(QWidget *parent = Q_NULLPTR);
 	~FotonMainWindow();
 
 private:
@@ -21,6 +22,8 @@ private:
 	QStatusBar  *statusBar;
 	QToolBar	*toolBar;
 	QSettings	*settings;
+	NewAnalysDialog *analysDialog;
+	QVector<QToolButton*> myToolBar;
 
 private:
 	void setupCentralWidget();
@@ -29,4 +32,7 @@ private:
 
 	void saveSettings();
 	void loadSettings();
+
+public:
+	bool eventFilter(QObject *watched, QEvent *event) override;
 };

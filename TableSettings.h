@@ -5,7 +5,7 @@ class TableSettings : public QTableWidget
 	Q_OBJECT
 
 public:
-	TableSettings(QWidget *parent = Q_NULLPTR);
+	explicit TableSettings(QWidget *parent = Q_NULLPTR);
 	~TableSettings();
 
 };

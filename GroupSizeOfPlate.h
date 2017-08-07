@@ -14,6 +14,6 @@ protected:
 	QGridLayout *gLayout;
 
 public:
-	GroupSizeOfPlate(QWidget *parent = Q_NULLPTR);
+	explicit GroupSizeOfPlate(QWidget *parent = Q_NULLPTR);
 	~GroupSizeOfPlate();
 };

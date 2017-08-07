@@ -33,7 +33,7 @@ protected:
 	QString		*keySettings;
 
 public:
-	CameraSettings(QString *key, QWidget *parent = Q_NULLPTR);
+	explicit CameraSettings(QString *key, QWidget *parent = Q_NULLPTR);
 	~CameraSettings();
 	void addSettings(QString);
 	void addFieldSettings(QString);

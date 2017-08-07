@@ -14,7 +14,7 @@ protected:
 	OffsetGroup *offsetGroupBox;
 
 public:
-	SettingsWidget(QWidget *parent = Q_NULLPTR);
+	explicit SettingsWidget(QWidget *parent = Q_NULLPTR);
 	~SettingsWidget();
 
 };

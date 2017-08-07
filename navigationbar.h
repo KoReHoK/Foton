@@ -3,7 +3,6 @@
 #include <utility>
 #include <vector>
 #include <string>
-#include "MenuWidget.h"
 
 class NavigationBar : public QWidget
 {
@@ -11,11 +10,10 @@ class NavigationBar : public QWidget
 public:
 	explicit NavigationBar(bool isRightExpand = true, QWidget *parent = 0);
 	void ExpandPressed();
-	void addElement(QIcon icon, QString caption, MenuWidget* menu = nullptr);
+	void addElement(QIcon icon, QString caption);
 protected:
 	QVBoxLayout *vLayout;
-	std::vector<std::pair<QToolButton*, MenuWidget*>> m_buttons;
-	QToolButton* m_expandButton;
+	std::vector<QToolButton*> m_buttons;
 	bool isExpand;
 	int maxTextWidth;
 	QPropertyAnimation *animation = nullptr;
@@ -26,4 +24,6 @@ public:
 	bool eventFilter(QObject *watched, QEvent *event) override;
 signals:
 	void showDialog(QString*);
+protected slots:
+	void finish();
 };

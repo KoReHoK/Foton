@@ -7,7 +7,7 @@ class Tab1 : public QWidget
 	Q_OBJECT
 
 public:
-	Tab1(QWidget *parent = Q_NULLPTR);
+	explicit Tab1(QWidget *parent = Q_NULLPTR);
 
 protected:
 	QGraphicsScene	*scene;
@@ -17,8 +17,6 @@ protected:
 	NavigationBar *defBar;
 
 	QHBoxLayout *hLayout;
-	MenuWidget *objectivesMenu;
-	MenuWidget *joystickMenu;
 
 protected:
 	void resizeEvent(QResizeEvent *event) override;

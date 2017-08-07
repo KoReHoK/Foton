@@ -9,8 +9,7 @@ class Tab3 : public QWidget
 	Q_OBJECT
 
 public:
-	Tab3(QWidget *parent = Q_NULLPTR);
-	~Tab3();
+	explicit Tab3(QWidget *parent = Q_NULLPTR);
 
 protected:
 	CameraSettings	*visibleCamera;

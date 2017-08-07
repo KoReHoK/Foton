@@ -51,7 +51,3 @@ Tab3::Tab3(QWidget *parent)
 	//gLayout->addWidget(gistWidget, 1, 1, 1, 1, Qt::AlignCenter);
 	//gLayout->addWidget(etiketka, 1, 2, 1, 1, Qt::AlignCenter);
 }
-
-Tab3::~Tab3()
-{
-}

@@ -20,7 +20,7 @@ signals:
 	void deleteWidget(uint);
 
 public:
-	SimpleWidget(QColor, QWidget *parent = Q_NULLPTR);
+	explicit SimpleWidget(QColor, QWidget *parent = Q_NULLPTR);
 	~SimpleWidget();
 
 	void setID(uint);

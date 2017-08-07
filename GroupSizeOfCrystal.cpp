@@ -23,7 +23,7 @@ GroupSizeOfCrystal::GroupSizeOfCrystal(QWidget *parent)
 	gLayout->addWidget(editHeightCryst, 1, 1);
 	gLayout->addWidget(editWidthLine, 2, 1);
 	gLayout->addWidget(editHeightLine, 3, 1);
-	gLayout->addWidget(pushMe, 4, 0, 1, 2, Qt::AlignHCenter);
+	gLayout->addWidget(pushMe, 4, 0, 1, 2);
 }
 
 GroupSizeOfCrystal::~GroupSizeOfCrystal()

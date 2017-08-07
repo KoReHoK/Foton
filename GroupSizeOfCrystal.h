@@ -17,6 +17,6 @@ protected:
 	QGridLayout *gLayout;
 
 public:
-	GroupSizeOfCrystal(QWidget *parent = Q_NULLPTR);
+	explicit GroupSizeOfCrystal(QWidget *parent = Q_NULLPTR);
 	~GroupSizeOfCrystal();
 };
