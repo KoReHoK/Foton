@@ -4,37 +4,50 @@
 NewAnalysDialog::NewAnalysDialog(QWidget * parent)
 	: QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint)
 {
-	hboxLayout = new QHBoxLayout(this);
+	gLayout = new QGridLayout(this);
+
+	oneCrystalMode = new QToolButton();
+	oneCrystalMode->setText("Однокристальный режим");
+	oneCrystalMode->setIcon(QIcon(":/icons/Resources/icons/oneCrystalMode.png"));
+	oneCrystalMode->setIconSize(QSize(182, 137));
+	oneCrystalMode->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
+	oneCrystalMode->setCheckable(true);
+	oneCrystalMode->setChecked(true);
+	oneCrystalMode->setAutoExclusive(true);
+	multiCrystalMode = new QToolButton();
+	multiCrystalMode->setText("Многокристальный режим");
+	multiCrystalMode->setIcon(QIcon(":/icons/Resources/icons/multiCrystalMode.png"));
+	multiCrystalMode->setIconSize(QSize(182, 137));
+	multiCrystalMode->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
+	multiCrystalMode->setCheckable(true);
+	multiCrystalMode->setAutoExclusive(true);
+	vSpacerItem = new QSpacerItem(30, 100, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+	hboxLayout = new QHBoxLayout();
 	hboxLayout->setSpacing(6);
 	hboxLayout->setContentsMargins(0, 0, 0, 0);
 
-	spacerItem = new QSpacerItem(131, 31, QSizePolicy::Expanding, QSizePolicy::Minimum);
-	hboxLayout->addItem(spacerItem);
-
-	okButton = new QPushButton(this);
-	cancelButton = new QPushButton(this);
-
-	connect(okButton, &QPushButton::clicked, this, &QDialog::accept);
-	connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
+	okButton = new QPushButton("OK");
+	cancelButton = new QPushButton("Cancel");
 
 	hboxLayout->addWidget(okButton);
 	hboxLayout->addWidget(cancelButton);
 
-	oneCrystalMode = new QRadioButton("One crystal mode", this);
-	multiCrystalMode = new QRadioButton("Multi crystal mode", this);
-	oneCrystalMode->setChecked(true);
-	multiCrystalMode->move(0, 15);
+	gLayout->addWidget(oneCrystalMode, 0, 0, Qt::AlignHCenter);
+	gLayout->addWidget(multiCrystalMode, 0, 1, Qt::AlignHCenter);
+	gLayout->addItem(vSpacerItem, 1, 0, 1, 2, Qt::AlignHCenter);
+	gLayout->addLayout(hboxLayout, 2, 1, Qt::AlignHCenter);
+	
+	connect(okButton, &QPushButton::clicked, this, &QDialog::accept);
+	connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 
-	connect(oneCrystalMode, &QRadioButton::clicked, this, &NewAnalysDialog::modeChanged);
-	connect(multiCrystalMode, &QRadioButton::clicked, this, &NewAnalysDialog::modeChanged);
-
-	setWindowTitle(QApplication::translate("Dialog", "Dialog", Q_NULLPTR));
-	okButton->setText(QApplication::translate("Dialog", "OK", Q_NULLPTR));
-	cancelButton->setText(QApplication::translate("Dialog", "Cancel", Q_NULLPTR));
+	connect(oneCrystalMode, &QToolButton::clicked, this, &NewAnalysDialog::modeChanged);
+	connect(multiCrystalMode, &QToolButton::clicked, this, &NewAnalysDialog::modeChanged);
 
 	mode = true;
 	setModal(true);
-	setFixedSize(400, 300);
+	setFixedSize(400, 250);
+	setWindowTitle("Выберите режим работы:");
 }
 
 bool NewAnalysDialog::getMode()

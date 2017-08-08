@@ -7,12 +7,13 @@ public:
 	explicit NewAnalysDialog(QWidget *parent = Q_NULLPTR);
 
 private:
+	QGridLayout	*gLayout;
 	QHBoxLayout *hboxLayout;
-	QSpacerItem *spacerItem;
+	QSpacerItem *vSpacerItem;
 	QPushButton *okButton;
 	QPushButton *cancelButton;
-	QRadioButton *oneCrystalMode;
-	QRadioButton *multiCrystalMode;
+	QToolButton *oneCrystalMode;
+	QToolButton *multiCrystalMode;
 
 	bool mode;	// true is oneCrystalMode
 

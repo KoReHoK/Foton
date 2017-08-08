@@ -25,7 +25,9 @@
         <file>Resources/icons/zone.png</file>
         <file>Resources/icons/objective.png</file>
         <file>Resources/icons/joystick.png</file>
-        <file>Resources/icons/handLayer.png</file>
         <file>Resources/icons/analyse.png</file>
+        <file>Resources/icons/handLayer.png</file>
+        <file>Resources/icons/multiCrystalMode.png</file>
+        <file>Resources/icons/oneCrystalMode.png</file>
     </qresource>
 </RCC>
