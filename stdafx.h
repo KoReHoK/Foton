@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <afxwin.h>
 #include <QAction>
 #include <QApplication>
 
@@ -49,6 +49,7 @@
 #include <QSettings>
 #include <QSlider>
 #include <QSpacerItem>
+#include <QStackedWidget>
 #include <QStatusBar>
 
 #include <QTableWidget>
@@ -63,3 +64,4 @@
 
 #include <QWheelEvent>
 #include <QWidget>
+#include <QWizard>

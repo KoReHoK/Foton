@@ -14,6 +14,7 @@ private:
 	QPushButton *cancelButton;
 	QToolButton *oneCrystalMode;
 	QToolButton *multiCrystalMode;
+	QCursor	*myCursor;
 
 	bool mode;	// true is oneCrystalMode
 

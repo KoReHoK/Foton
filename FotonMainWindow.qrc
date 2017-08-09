@@ -29,5 +29,8 @@
         <file>Resources/icons/handLayer.png</file>
         <file>Resources/icons/multiCrystalMode.png</file>
         <file>Resources/icons/oneCrystalMode.png</file>
+        <file>Resources/icons/goback.png</file>
+        <file>Resources/icons/nextStep.png</file>
+        <file>Resources/icons/prevStep.png</file>
     </qresource>
 </RCC>

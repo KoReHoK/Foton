@@ -78,20 +78,8 @@
     <ClCompile Include="FotonMainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_FotonMainWindow.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_FotonMainWindow.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_FotonMainWindow.cpp">
       <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Tab1.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Tab1.cpp">
-      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="Tab1.cpp">
       <Filter>Source Files\Tab1</Filter>
@@ -102,26 +90,8 @@
     <ClCompile Include="Tab2.cpp">
       <Filter>Source Files\Tab2</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Tab2.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Tab2.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_SettingsWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
     <ClCompile Include="LegendWidget.cpp">
       <Filter>Source Files\Tab2</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_LegendWidget.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_LegendWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_SettingsWidget.cpp">
-      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="SettingsWidget.cpp">
       <Filter>Source Files\Tab2\SettingsWidget</Filter>
@@ -129,23 +99,86 @@
     <ClCompile Include="GroupSizeOfPlate.cpp">
       <Filter>Source Files\Tab2\SettingsWidget</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfPlate.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfPlate.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="GroupSizeOfCrystal.cpp">
       <Filter>Source Files\Tab2\SettingsWidget</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfCrystal.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfCrystal.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="OffsetGroup.cpp">
       <Filter>Source Files\Tab2\SettingsWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="Tab3.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="TableSettings.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="ElseSettings.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSettings.cpp">
+      <Filter>Source Files\Tab3</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleWidget.cpp">
+      <Filter>Source Files\Tab2</Filter>
+    </ClCompile>
+    <ClCompile Include="navigationbar.cpp">
+      <Filter>Source Files\Tab1\NavigationBar</Filter>
+    </ClCompile>
+    <ClCompile Include="NewAnalysDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wizard.cpp">
+      <Filter>Source Files\Tab1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\QLoadDll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\QJobGeneral.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\QJobMicro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QJobGeneral.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QJobGeneral.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QLoadDll.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QLoadDll.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TableSettings.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TableSettings.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab3.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab3.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab2.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab2.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Tab1.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Tab1.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SettingsWidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SettingsWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_OffsetGroup.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -153,13 +186,28 @@
     <ClCompile Include="GeneratedFiles\Release\moc_OffsetGroup.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="Tab3.cpp">
-      <Filter>Source Files\Tab3</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_Tab3.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_LegendWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_Tab3.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_LegendWidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfPlate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfPlate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_GroupSizeOfCrystal.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_GroupSizeOfCrystal.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FotonMainWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FotonMainWindow.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_ElseSettings.cpp">
@@ -174,32 +222,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CameraSettings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_TableSettings.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_TableSettings.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="TableSettings.cpp">
-      <Filter>Source Files\Tab3</Filter>
-    </ClCompile>
-    <ClCompile Include="ElseSettings.cpp">
-      <Filter>Source Files\Tab3</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraSettings.cpp">
-      <Filter>Source Files\Tab3</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleWidget.cpp">
-      <Filter>Source Files\Tab2</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_SimpleWidget.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_SimpleWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="navigationbar.cpp">
-      <Filter>Source Files\Tab1\NavigationBar</Filter>
+    <ClCompile Include="GeneratedFiles\Debug\moc_NewAnalysDialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_NewAnalysDialog.cpp">
+      <Filter>Generated Files\Release</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_navigationbar.cpp">
       <Filter>Generated Files\Debug</Filter>
@@ -207,16 +240,10 @@
     <ClCompile Include="GeneratedFiles\Release\moc_navigationbar.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="LoadDll.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NewAnalysDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_NewAnalysDialog.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_Wizard.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_NewAnalysDialog.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_Wizard.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
@@ -269,15 +296,27 @@
     <CustomBuild Include="NewAnalysDialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Wizard.h">
+      <Filter>Header Files\Tab1</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\include\QLoadDll.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\include\QJobGeneral.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QCameraFrame.h">
       <Filter>Header Files\Tab1\ImageFrame</Filter>
     </ClInclude>
-    <ClInclude Include="LoadDll.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="..\include\QJobMicro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Basalaev\Source\include\JobStuct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

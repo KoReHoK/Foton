@@ -131,26 +131,25 @@ bool FotonMainWindow::eventFilter(QObject *watched, QEvent *event) {
 			if (analysDialog->exec() == QDialog::Accepted) {
 				if (analysDialog->getMode()) {
 					// Однокристальный режим
-					QMessageBox::information(0,
+					QMessageBox::information(this,
 						"infa100%",
 						"Вы выбрали однокристальный режим");
+					centralWidget->setCurrentIndex(0);	// вкладка осмотр
 				}
 				else {
 					// Многокристальный режим
-					QMessageBox::information(0,
+					QMessageBox::information(this,
 						"infa100%",
 						"Вы выбрали многокристальный режим");
+					centralWidget->setCurrentIndex(1);	// вкладка карта
 				}
 
 				myToolBar.at(6)->setEnabled(true);	// мастер привязки
 			}
 			delete analysDialog;
 		}
-
-
-
-		if (tmp->toolTip() == "Мастер привязки") {
-
+		else {
+			tab1->dialog(&tmp->toolTip());
 		}
 	}
 

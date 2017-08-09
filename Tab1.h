@@ -1,7 +1,8 @@
 #pragma once
 #include "QCameraFrame.h"
 #include "navigationbar.h"
-
+#include "Wizard.h"
+#include "QJobMicro.h"
 class Tab1 : public QWidget
 {
 	Q_OBJECT
@@ -12,10 +13,9 @@ public:
 protected:
 	QGraphicsScene	*scene;
 	QGraphicsView	*view;
+	Wizard			*wizard;
 	QCameraFrame *cameraFrame;
-	NavigationBar *navBar;
 	NavigationBar *defBar;
-
 	QHBoxLayout *hLayout;
 
 protected:

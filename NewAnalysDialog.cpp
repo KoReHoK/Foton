@@ -5,6 +5,7 @@ NewAnalysDialog::NewAnalysDialog(QWidget * parent)
 	: QDialog(parent, Qt::WindowTitleHint | Qt::WindowSystemMenuHint)
 {
 	gLayout = new QGridLayout(this);
+	myCursor = new QCursor(Qt::PointingHandCursor);
 
 	oneCrystalMode = new QToolButton();
 	oneCrystalMode->setText("Однокристальный режим");
@@ -14,6 +15,7 @@ NewAnalysDialog::NewAnalysDialog(QWidget * parent)
 	oneCrystalMode->setCheckable(true);
 	oneCrystalMode->setChecked(true);
 	oneCrystalMode->setAutoExclusive(true);
+	oneCrystalMode->setCursor(*myCursor);
 	multiCrystalMode = new QToolButton();
 	multiCrystalMode->setText("Многокристальный режим");
 	multiCrystalMode->setIcon(QIcon(":/icons/Resources/icons/multiCrystalMode.png"));
@@ -21,6 +23,7 @@ NewAnalysDialog::NewAnalysDialog(QWidget * parent)
 	multiCrystalMode->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
 	multiCrystalMode->setCheckable(true);
 	multiCrystalMode->setAutoExclusive(true);
+	multiCrystalMode->setCursor(*myCursor);
 	vSpacerItem = new QSpacerItem(30, 100, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
 	hboxLayout = new QHBoxLayout();

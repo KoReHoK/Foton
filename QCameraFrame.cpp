@@ -59,7 +59,7 @@ void QCameraFrame::paintEvent(QPaintEvent *) {
 			painter.drawImage(rects.first, currentImage, rects.second);
 		}
 
-		if (IsWindow(secondWnd))
+/*		if (IsWindow(secondWnd))
 		{
 			HDC hdc = GetDC(secondWnd);
 			QPixmap px = QPixmap::fromImage(currentImage);
@@ -72,7 +72,7 @@ void QCameraFrame::paintEvent(QPaintEvent *) {
 			StretchBlt(hdc, 0, 0, secondWndRect.right, secondWndRect.bottom, hMemDCOrig, 0, 0, currentImage.width(), currentImage.height(), SRCCOPY);
 			DeleteDC(hMemDCOrig);
 		}
-
+		*/
 	}
 }
 
