@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Foton", "Foton.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MicroManager", "..\..\..\Basalaev\Source\MicroManager\MicroManager.vcxproj", "{785D2FC4-705D-4AD4-BA8F-174B3DCD4246}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EsExperts5Mpx", "..\..\..\Basalaev\Source\EsExperts5Mpx\EsExperts5Mpx.vcxproj", "{0042371C-14F7-45B4-BB50-C4BC4743474E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -52,6 +54,16 @@ Global
 		{785D2FC4-705D-4AD4-BA8F-174B3DCD4246}.Without desk|x64.Build.0 = Without desk|x64
 		{785D2FC4-705D-4AD4-BA8F-174B3DCD4246}.Without desk|x86.ActiveCfg = Without desk|Win32
 		{785D2FC4-705D-4AD4-BA8F-174B3DCD4246}.Without desk|x86.Build.0 = Without desk|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Debug|x64.ActiveCfg = Debug|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Debug|x86.ActiveCfg = Debug|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Debug|x86.Build.0 = Debug|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Release|x64.ActiveCfg = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Release|x86.ActiveCfg = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Release|x86.Build.0 = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Without desk|x64.ActiveCfg = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Without desk|x64.Build.0 = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Without desk|x86.ActiveCfg = Release|Win32
+		{0042371C-14F7-45B4-BB50-C4BC4743474E}.Without desk|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
