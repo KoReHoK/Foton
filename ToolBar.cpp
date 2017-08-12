@@ -74,61 +74,33 @@ ToolBar::ToolBar(QWidget *parent)
 
 bool ToolBar::eventFilter(QObject *watched, QEvent *event) {
 	QToolButton *tmp;
-	if ((tmp = dynamic_cast<QToolButton*>(watched)) && tmp->isEnabled() && (event->type() == QEvent::MouseButtonPress)) {	// successful
+	if ((tmp = dynamic_cast<QToolButton*>(watched)) && tmp->isEnabled() && (event->type() == QEvent::MouseButtonRelease)) {	// successful
 
 		if (tmp->toolTip() == "Новый анализ") {
 			newAnalys = new NewAnalysDialog(this);
 			if (newAnalys->exec() == QDialog::Accepted) {
 				if (newAnalys->getMode()) {
-					// Однокристальный режим
-					QMessageBox::information(this,
-						"infa100%",
-						"Вы выбрали однокристальный режим");
-					//centralWidget->setCurrentIndex(0);	// вкладка осмотр
+					emit setCrystMode(0);	// one crystal mode
 				}
 				else {
-					// Многокристальный режим
-					QMessageBox::information(this,
-						"infa100%",
-						"Вы выбрали многокристальный режим");
-					//centralWidget->setCurrentIndex(1);	// вкладка карта
+					emit setCrystMode(1);	// multi crystal mode 
 				}
 
-				myToolBar.at(6)->setEnabled(true);	// мастер привязки
+				//myToolBar.at(6)->setEnabled(true);	// мастер привязки
 			}
 			delete newAnalys;
 		};
 
-		if ((tmp->toolTip() == "Мастер привязки") && !wizard) {
-
-			QMessageBox::information(this,
-				"infa100%",
-				"Вы выбрали мастер привязки");
-
-			wizard = new Wizard();
-
-			wizard->setFixedSize(200, 200);
-			wizard->move(width() - 200, 0);
-			wizard->show();
-			wizard->setAutoFillBackground(true);
+		if (tmp->toolTip() == "Мастер привязки") {
+			emit showWizard();
 		};
 
 		if (tmp->toolTip() == "Панорама кристалла") {
-
 			emit showPanorama();
-
-			QMessageBox::information(this,
-				"infa100%",
-				"Вы выбрали режим панорамы");
 		}
 
 		if (tmp->toolTip() == "Камера") {
-
 			emit showCamera();
-
-			QMessageBox::information(this,
-				"infa100%",
-				"Вы выбрали режим камеры");
 		}
 	}
 

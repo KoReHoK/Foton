@@ -38,6 +38,8 @@ void FotonMainWindow::setupToolBar()
 
 	connect(toolBar, &ToolBar::showPanorama, mainWidget, &CentralWidget::showPanorama);
 	connect(toolBar, &ToolBar::showCamera, mainWidget, &CentralWidget::showCamera);
+	connect(toolBar, &ToolBar::showWizard, mainWidget, &CentralWidget::showWizard);
+	connect(toolBar, &ToolBar::setCrystMode, mainWidget, &CentralWidget::setCrystMode);
 }
 
 void FotonMainWindow::saveSettings()

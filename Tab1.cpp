@@ -4,8 +4,6 @@
 Tab1::Tab1(QWidget *parent)
 	: QWidget(parent)
 {
-	scene = nullptr;
-
 	cameraFrame = new QCameraFrame();
 	cameraFrame->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
 
@@ -30,6 +28,7 @@ Tab1::Tab1(QWidget *parent)
 	defBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");
+	defBar->setGeometry(0, 9, 38, 170);
 }
 
 void Tab1::showCamera() {
@@ -39,4 +38,28 @@ void Tab1::showCamera() {
 void Tab1::showPanorama()
 {
 	mainWidget->setCurrentIndex(1);
+}
+
+void Tab1::showWizard() {
+	if (!wizard) {
+		wizard = new Wizard(this);
+		connect(wizard, &Wizard::closeWizard, this, &Tab1::deleteWizard);
+
+		wizard->setFixedSize(200, 200);
+		wizard->move(width() - 200, 0);
+		wizard->show();
+		wizard->setAutoFillBackground(true);
+	}
+}
+
+void Tab1::deleteWizard() {
+	if (wizard) {
+		delete wizard;
+		wizard = nullptr;
+	}
+}
+
+void Tab1::resizeEvent(QResizeEvent *event) {
+	if(wizard)
+		wizard->move(width() - 200, 0);
 }

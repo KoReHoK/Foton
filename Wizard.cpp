@@ -2,41 +2,24 @@
 #include "Wizard.h"
 
 Wizard::Wizard(QWidget *parent)
-	: QWidget(parent)
+	: QStackedWidget(parent)
 {
-	mainWidget = new QStackedWidget();
-	mainWidget->addWidget(new IntroPage);
-	mainWidget->addWidget(new FirstPage);
-	mainWidget->addWidget(new SecondPage);
-	gLayout = new QGridLayout(this);
+	introPage = new IntroPage();
+	connect(introPage, &IntroPage::next, this, &Wizard::showNextPage);
+	connect(introPage, &IntroPage::exit, this, &Wizard::closeWizard);
 
-	thisPage = 0;
+	firstPage = new FirstPage();
+	connect(firstPage, &FirstPage::prev, this, &Wizard::showPrevPage);
+	connect(firstPage, &FirstPage::next, this, &Wizard::showNextPage);
+	connect(firstPage, &FirstPage::begin, this, &Wizard::showIntroPage);
 
-	pNextButton = new QToolButton();
-	pNextButton->setText("Далее");
-	pNextButton->setIcon(QIcon(":/icons/Resources/icons/nextStep.png"));
-	pNextButton->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
-	pNextButton->setFixedWidth(60);
-	connect(pNextButton, &QToolButton::clicked, this, &Wizard::showNextPage);
+	finishPage = new FinishPage();
+	connect(finishPage, &FinishPage::prev, this, &Wizard::showPrevPage);
+	connect(finishPage, &FinishPage::exit, this, &Wizard::closeWizard);
 
-	pPrevButton = new QToolButton();
-	pPrevButton->setText("Назад");
-	pPrevButton->setIcon(QIcon(":/icons/Resources/icons/prevStep.png"));
-	pPrevButton->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
-	pPrevButton->setFixedWidth(60);
-	connect(pPrevButton, &QToolButton::clicked, this, &Wizard::showPrevPage);
-
-	pBeginButton = new QToolButton();
-	pBeginButton->setText("Сначала");
-	pBeginButton->setIcon(QIcon(":/icons/Resources/icons/goback.png"));
-	pBeginButton->setToolButtonStyle(Qt::ToolButtonStyle::ToolButtonTextUnderIcon);
-	pBeginButton->setFixedWidth(60);
-	connect(pBeginButton, &QToolButton::clicked, this, &Wizard::showFirstPage);
-
-	gLayout->addWidget(mainWidget,0, 0, 1, 3, Qt::AlignHCenter);
-	gLayout->addWidget(pPrevButton, 1, 0, 1, 1, Qt::AlignHCenter);
-	gLayout->addWidget(pNextButton, 1, 1, 1, 1, Qt::AlignHCenter);
-	gLayout->addWidget(pBeginButton, 1, 2, 1, 1, Qt::AlignHCenter);
+	addWidget(introPage);
+	addWidget(firstPage);
+	addWidget(finishPage);
 
 	//setPixmap(QWizard::BannerPixmap, QPixmap(":/images/banner.png"));
 	//setPixmap(QWizard::BackgroundPixmap, QPixmap(":/images/background.png"));
@@ -45,16 +28,15 @@ Wizard::Wizard(QWidget *parent)
 }
 
 void Wizard::showNextPage() {
-	if (thisPage < (mainWidget->count() - 1)) 
-		mainWidget->setCurrentIndex(++thisPage);
+	if (currentIndex() < (count() - 1)) 
+		setCurrentIndex(currentIndex() + 1);
 }
 
 void Wizard::showPrevPage() {
-	if ((mainWidget->count() > 0) && (thisPage > 0))
-		mainWidget->setCurrentIndex(--thisPage);
+	if ((count() > 0) && (currentIndex() > 0))
+		setCurrentIndex(currentIndex() - 1);
 }
 
-void Wizard::showFirstPage() {
-	thisPage = 0;
-	mainWidget->setCurrentIndex(thisPage);
+void Wizard::showIntroPage() {
+	setCurrentIndex(0);
 }

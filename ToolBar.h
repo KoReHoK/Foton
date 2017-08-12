@@ -1,6 +1,5 @@
 #pragma once
 #include "NewAnalysDialog.h"
-#include "Wizard.h"
 
 class ToolBar : public QToolBar
 {
@@ -11,7 +10,6 @@ public:
 private:
 	QVector<QToolButton*> myToolBar;
 	NewAnalysDialog *newAnalys;
-	Wizard			*wizard = nullptr;
 
 public:
 	bool eventFilter(QObject *watched, QEvent *event) override;
@@ -19,4 +17,6 @@ public:
 signals:
 	void showPanorama();
 	void showCamera();
+	void showWizard();
+	void setCrystMode(int);
 };

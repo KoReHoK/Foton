@@ -46,7 +46,10 @@ private:
 signals:
 	void showPanorama();
 	void showCamera();
+	void showWizard();
+	void closeWizard();
 
-private slots:
+public slots:
 	void tabChanged(int index);
+	void setCrystMode(int);
 };
