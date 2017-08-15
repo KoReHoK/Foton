@@ -9,11 +9,8 @@ public:
 	~FotonMainWindow();
 
 private:
-	CentralWidget	*mainWidget;
-	QStatusBar  *statusBar;
-	ToolBar	*toolBar;
-
 	QSettings	*settings;
+	CentralWidget *mainWidget;
 
 private:
 	void setupCentralWidget();

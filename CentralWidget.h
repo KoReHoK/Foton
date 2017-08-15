@@ -28,8 +28,9 @@ class EmitSignal : public QObject
 {
 	Q_OBJECT
 
-signals :
+signals:
 	void newFrame(uchar* newFrame, int w, int h, int bits);
+	void addDef(QString desc, int hotKey, byte keypad, int code, bool good, bool butt, bool foto);
 };
 
 class CentralWidget : public QTabWidget
@@ -47,9 +48,10 @@ signals:
 	void showPanorama();
 	void showCamera();
 	void showWizard();
-	void closeWizard();
+
+private slots:
+	void tabChanged(int index);
 
 public slots:
-	void tabChanged(int index);
 	void setCrystMode(int);
 };

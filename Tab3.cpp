@@ -4,7 +4,7 @@
 Tab3::Tab3(QWidget *parent)
 	: QWidget(parent)
 {
-	visibleCamera = new CameraSettings(new QString("visibleCamera"));
+	CameraSettings *visibleCamera = new CameraSettings(new QString("visibleCamera"), this);
 	visibleCamera->addSettings("Экспозиция");
 	visibleCamera->addSettings("Яркость");
 	visibleCamera->addSettings("Усиление (цифр.)");
@@ -20,7 +20,7 @@ Tab3::Tab3(QWidget *parent)
 	visibleCamera->addFieldSettings("X20");
 	visibleCamera->loadSettings();
 
-	ikCamera = new CameraSettings(new QString("ikCamera"));
+	CameraSettings *ikCamera = new CameraSettings(new QString("ikCamera"), this);
 	ikCamera->addSettings("Экспозиция");
 	ikCamera->addSettings("Яркость");
 	ikCamera->addSettings("Усиление (цифр.)");
@@ -31,10 +31,10 @@ Tab3::Tab3(QWidget *parent)
 	ikCamera->addFieldSettings("IX20");
 	ikCamera->loadSettings();
 
-	buttonsPult = new TableSettings();
-	hotButtons = new TableSettings();
-	settings = new ElseSettings();
-	toolBox = new QToolBox();
+	TableSettings *buttonsPult = new TableSettings(this);
+	TableSettings *hotButtons = new TableSettings(this);
+	ElseSettings *settings = new ElseSettings(this);
+	QToolBox *toolBox = new QToolBox(this);
 	toolBox->addItem(visibleCamera, "Камера видимого спектра");
 	toolBox->addItem(ikCamera, "ИК камера");
 	toolBox->addItem(buttonsPult, "Кнопки пульта");
@@ -42,12 +42,13 @@ Tab3::Tab3(QWidget *parent)
 	toolBox->addItem(settings, "Прочие настройки");
 	toolBox->setFixedWidth(300);
 
-	//cameraWidget = new QWidget();
-	//gistWidget = new QWidget();
+	/*Redaktor *redaktor = new Redaktor(this);
+	connect(this, &Tab3::addDef, redaktor, &Redaktor::addDef);*/
 
-	gLayout = new QGridLayout(this);
-	gLayout->addWidget(toolBox, 0, 0, 2, 1, Qt::AlignLeft);
-	//gLayout->addWidget(cameraWidget, 0, 1, 1, 2, Qt::AlignRight);
-	//gLayout->addWidget(gistWidget, 1, 1, 1, 1, Qt::AlignCenter);
-	//gLayout->addWidget(etiketka, 1, 2, 1, 1, Qt::AlignCenter);
+	ModelViewDemoWidget *demoWidget = new ModelViewDemoWidget(this);
+	connect(this, &Tab3::addDef, demoWidget, &ModelViewDemoWidget::onAppend);
+
+	QGridLayout *gLayout = new QGridLayout(this);
+	gLayout->addWidget(toolBox, 0, 0, 1, 1, Qt::AlignLeft);
+	gLayout->addWidget(demoWidget, 0, 1, 1, 1);
 }

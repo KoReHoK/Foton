@@ -4,27 +4,29 @@
 Tab1::Tab1(QWidget *parent)
 	: QWidget(parent)
 {
-	cameraFrame = new QCameraFrame();
+	QCameraFrame *cameraFrame = new QCameraFrame(true);
+	cameraFrame->setParent(this);
 	cameraFrame->setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
 
-	scene = new QGraphicsScene();
+	QGraphicsScene *scene = new QGraphicsScene(this);
 	QGraphicsItem *item1 = new  QGraphicsPixmapItem(QPixmap(":/icons/Resources/icons/endControl.png"));
 	item1->setPos(0, 0);
 	QGraphicsItem *item2 = new  QGraphicsPixmapItem(QPixmap(":/icons/Resources/icons/toFirst.png"));
 	item1->setPos(300, 0);
 	scene->addItem(item1);
 	scene->addItem(item2);
-	panoramaView = new QGraphicsView();
+
+	QGraphicsView *panoramaView = new QGraphicsView(this);
 	panoramaView->setScene(scene);
 
-	mainWidget = new QStackedWidget();
+	mainWidget = new QStackedWidget(this);
 	mainWidget->addWidget(cameraFrame);
 	mainWidget->addWidget(panoramaView);
 
-	hLayout = new QHBoxLayout(this);
+	QHBoxLayout *hLayout = new QHBoxLayout(this);
 	hLayout->addWidget(mainWidget, Qt::AlignLeft);
 
-	defBar = new NavigationBar(true, this);
+	NavigationBar *defBar = new NavigationBar(true, this);
 	defBar->addElement(QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал");
 	defBar->addElement(QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал");
@@ -57,6 +59,12 @@ void Tab1::deleteWizard() {
 		delete wizard;
 		wizard = nullptr;
 	}
+}
+
+void Tab1::updateFrame(uchar * newFrame, int w, int h, int bits)
+{
+	if(QCameraFrame *tmp = dynamic_cast<QCameraFrame*>(mainWidget->currentWidget()))
+		tmp->updateFrame(newFrame, w, h, bits);
 }
 
 void Tab1::resizeEvent(QResizeEvent *event) {

@@ -3,9 +3,10 @@
 #include <qpainter.h>
 #include <QDebug>
 
-QCameraFrame::QCameraFrame() :
+QCameraFrame::QCameraFrame(bool tmp) :
 	m_scale(0.2),
-	m_drawOffset(0, 0)
+	m_drawOffset(0, 0),
+	eventFlag(tmp)
 {
 	isAutoScale = false;
 	//setFrameStyle(QFrame::Panel);
@@ -149,7 +150,7 @@ void QCameraFrame::DecrementScale(const QPoint& immobilePoint)
 
 void QCameraFrame::wheelEvent(QWheelEvent *event)
 {
-	if (!isAutoScale) {
+	if (!isAutoScale && eventFlag) {
 		QPoint point = event->pos();
 		if (currentImage.width() * m_scale < width()) point.setX(width() / 2);
 		if (currentImage.height() * m_scale < height()) point.setY(height() / 2);
@@ -178,7 +179,7 @@ void QCameraFrame::UpdateOffset(QPointF curPt)
 
 void QCameraFrame::mouseMoveEvent(QMouseEvent *event)
 {
-	if (!isAutoScale) {
+	if (!isAutoScale && eventFlag) {
 		if (event->buttons() & Qt::RightButton)
 		{
 			UpdateOffset(event->localPos());
@@ -189,16 +190,15 @@ void QCameraFrame::mouseMoveEvent(QMouseEvent *event)
 
 void QCameraFrame::mousePressEvent(QMouseEvent *event)
 {
-	if (!isAutoScale) {
+	if (!isAutoScale && eventFlag) {
 		if (event->buttons() & Qt::RightButton)
 		{
 			m_RightDownPos = event->localPos();
 		}
 	}
 }
-
-void QCameraFrame::mouseReleaseEvent(QMouseEvent *event)
-{
-
-}
-
+//
+//void QCameraFrame::mouseReleaseEvent(QMouseEvent *event)
+//{
+//
+//}

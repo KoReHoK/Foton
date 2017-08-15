@@ -35,23 +35,24 @@ ToolBar::ToolBar(QWidget *parent)
 	tmpJoystik = new QMenu();
 	tmpJoystik->addActions(listJoystick);
 
-	QVector<myToolButton> tButton;
-	tButton.push_back({ QIcon(":/icons/Resources/icons/analyse.png"), "Новый анализ", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/liftUp.png"), "Поднять зонды", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/liftDown.png"), "Опустить зонды", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/wizard.png"), "Мастер привязки", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/lightning.png"), "Подать напряжение", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/endControl.png"), "Завершнение контроля", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/genReport.png"), "Генерация отчета", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/saveImage.png"), "Камера", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/inversion.png"), "Инверсия цвета", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/layer.png"), "Слои", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/panorama.png"), "Панорама кристалла", nullptr });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/objective.png"), "Объектив", tmpObjectives });
-	tButton.push_back({ QIcon(":/icons/Resources/icons/joystick.png"), "Режим джойстика", tmpJoystik });
+	QVector<myToolButton> tButton{
+		{ QIcon(":/icons/Resources/icons/analyse.png"), "Новый анализ", nullptr },
+		{ QIcon(":/icons/Resources/icons/toFirst.png"), "Первый кристал", nullptr },
+		{ QIcon(":/icons/Resources/icons/next.png"), "Следующий кристал", nullptr },
+		{ QIcon(":/icons/Resources/icons/prev.png"), "Предыдущий кристал", nullptr },
+		{ QIcon(":/icons/Resources/icons/liftUp.png"), "Поднять зонды", nullptr },
+		{ QIcon(":/icons/Resources/icons/liftDown.png"), "Опустить зонды", nullptr },
+		{ QIcon(":/icons/Resources/icons/wizard.png"), "Мастер привязки", nullptr },
+		{ QIcon(":/icons/Resources/icons/lightning.png"), "Подать напряжение", nullptr },
+		{ QIcon(":/icons/Resources/icons/endControl.png"), "Завершнение контроля", nullptr },
+		{ QIcon(":/icons/Resources/icons/genReport.png"), "Генерация отчета", nullptr },
+		{ QIcon(":/icons/Resources/icons/saveImage.png"), "Камера", nullptr },
+		{ QIcon(":/icons/Resources/icons/inversion.png"), "Инверсия цвета", nullptr },
+		{ QIcon(":/icons/Resources/icons/layer.png"), "Слои", nullptr },
+		{ QIcon(":/icons/Resources/icons/panorama.png"), "Панорама кристалла", nullptr },
+		{ QIcon(":/icons/Resources/icons/objective.png"), "Объектив", tmpObjectives },
+		{ QIcon(":/icons/Resources/icons/joystick.png"), "Режим джойстика", tmpJoystik }
+	};
 
 	QVector<myToolButton>::iterator i = tButton.begin();
 	for (; i != tButton.end(); ++i) {
@@ -68,8 +69,6 @@ ToolBar::ToolBar(QWidget *parent)
 		myToolBar.push_back(tmp);
 		addWidget(tmp);
 	}
-
-	myToolBar.at(0)->setEnabled(true);	// new analyses
 }
 
 bool ToolBar::eventFilter(QObject *watched, QEvent *event) {
@@ -77,18 +76,15 @@ bool ToolBar::eventFilter(QObject *watched, QEvent *event) {
 	if ((tmp = dynamic_cast<QToolButton*>(watched)) && tmp->isEnabled() && (event->type() == QEvent::MouseButtonRelease)) {	// successful
 
 		if (tmp->toolTip() == "Новый анализ") {
-			newAnalys = new NewAnalysDialog(this);
-			if (newAnalys->exec() == QDialog::Accepted) {
-				if (newAnalys->getMode()) {
+			NewAnalysDialog newAnalys(this);
+			if (newAnalys.exec() == QDialog::Accepted) {
+				if (newAnalys.getMode()) {
 					emit setCrystMode(0);	// one crystal mode
 				}
 				else {
 					emit setCrystMode(1);	// multi crystal mode 
 				}
-
-				//myToolBar.at(6)->setEnabled(true);	// мастер привязки
 			}
-			delete newAnalys;
 		};
 
 		if (tmp->toolTip() == "Мастер привязки") {

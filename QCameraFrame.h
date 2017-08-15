@@ -6,7 +6,7 @@ class QCameraFrame :
 	public QOpenGLWidget
 {
 public:
-	QCameraFrame();
+	QCameraFrame(bool);
 	~QCameraFrame();
 	double imageAspectRatio() const;
 	void paintEvent(QPaintEvent *);
@@ -23,12 +23,13 @@ public:
 	void UpdateOffset(QPointF curPt);
 	void mouseMoveEvent(QMouseEvent *event);
 	void mousePressEvent(QMouseEvent *event);
-	void mouseReleaseEvent(QMouseEvent *event);
+	//void mouseReleaseEvent(QMouseEvent *event);
 
 private:
 	QRect centeredViewport(int width, int height) const;
 
 private:
+	bool eventFlag;
 	bool isAutoScale;
 	QPointF m_RightDownPos;
 	QImage currentImage;

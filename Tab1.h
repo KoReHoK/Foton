@@ -9,16 +9,9 @@ class Tab1 : public QWidget
 
 public:
 	explicit Tab1(QWidget *parent = Q_NULLPTR);
-	QCameraFrame *cameraFrame;
 
 private:
-	QGraphicsScene	*scene = nullptr;
-	QGraphicsView	*panoramaView;
-	
-	NavigationBar *defBar;
-	QHBoxLayout *hLayout;
 	QStackedWidget *mainWidget;
-
 	Wizard		*wizard = nullptr;
 
 public slots:
@@ -26,6 +19,7 @@ public slots:
 	void showPanorama();
 	void showWizard();
 	void deleteWizard();
+	void updateFrame(uchar* newFrame, int w, int h, int bits);
 
 protected:
 	void resizeEvent(QResizeEvent *event) override;

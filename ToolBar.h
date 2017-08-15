@@ -9,7 +9,6 @@ public:
 
 private:
 	QVector<QToolButton*> myToolBar;
-	NewAnalysDialog *newAnalys;
 
 public:
 	bool eventFilter(QObject *watched, QEvent *event) override;

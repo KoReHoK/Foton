@@ -11,18 +11,15 @@ class Tab2 : public QWidget
 
 public:
 	explicit Tab2(QWidget *parent = Q_NULLPTR);
+
+private:
 	QCameraFrame *cameraFrame;
 
-protected:
-	SettingsWidget *settings;
-	LegendWidget	*legend;
-	QWidget			*widget;
-	QHBoxLayout		*hLayout;
-	QToolBox		*toolBox;
-	NavigationBar	*navBar;
+private slots:
+	void dialog(QString*);
 
 public slots:
-	void dialog(QString*);
+	void updateFrame(uchar* newFrame, int w, int h, int bits);
 
 protected:
 	void resizeEvent(QResizeEvent *event) override;

@@ -10,7 +10,6 @@ FotonMainWindow::FotonMainWindow(QWidget *parent)
 
 	settings = new QSettings("config.ini", QSettings::Format::IniFormat, this);
 	loadSettings();
-	_CrtSetDbgFlag(0);
 }
 
 FotonMainWindow::~FotonMainWindow()
@@ -26,14 +25,14 @@ void FotonMainWindow::setupCentralWidget()
 
 void FotonMainWindow::setupStatusBar()
 {
-	statusBar = new QStatusBar(this);
+	QStatusBar  *statusBar = new QStatusBar(this);
 	statusBar->addWidget(new QLabel("StatusBar"));
 	setStatusBar(statusBar);
 }
 
 void FotonMainWindow::setupToolBar()
 {
-	toolBar = new ToolBar(this);
+	ToolBar	*toolBar = new ToolBar(this);
 	addToolBar(toolBar);
 
 	connect(toolBar, &ToolBar::showPanorama, mainWidget, &CentralWidget::showPanorama);

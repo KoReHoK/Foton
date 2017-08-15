@@ -21,8 +21,7 @@ void LegendWidget::createDefekt() {
 	resizeEvent();
 
 	connect(sWidget, &SimpleWidget::deleteWidget, this, &LegendWidget::resizeVector);
-	//TODO: изменить на безопасный формат connect
-	connect(cDialog, SIGNAL(currentColorChanged(QColor)), sWidget, SLOT(colorChanged(QColor)));
+	connect(cDialog, &QColorDialog::currentColorChanged, sWidget, &SimpleWidget::colorChanged);
 }
 
 void LegendWidget::resizeEvent() {

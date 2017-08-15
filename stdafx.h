@@ -1,11 +1,13 @@
 #pragma once
 
 #include <afxwin.h>
+#include <QAbstractTableModel>
 #include <QAction>
 #include <QApplication>
 
 #include <QButtonGroup>
 
+#include <QCheckBox>
 #include <QColorDialog>
 #include <QCursor>
 
@@ -52,6 +54,7 @@
 #include <QStackedWidget>
 #include <QStatusBar>
 
+#include <QTableView>
 #include <QTableWidget>
 #include <QTabWidget>
 #include <QTime>

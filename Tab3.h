@@ -3,6 +3,7 @@
 #include "TableSettings.h"
 #include "ElseSettings.h"
 #include "CameraSettings.h"
+#include "modelviewdemowidget.h"
 
 class Tab3 : public QWidget
 {
@@ -11,15 +12,6 @@ class Tab3 : public QWidget
 public:
 	explicit Tab3(QWidget *parent = Q_NULLPTR);
 
-protected:
-	CameraSettings	*visibleCamera;
-	CameraSettings	*ikCamera;
-	TableSettings	*buttonsPult;
-	TableSettings	*hotButtons;
-	ElseSettings	*settings;
-	QToolBox		*toolBox;
-	QWidget			*cameraWidget;
-	QWidget			*gistWidget;
-	//QImage			*etiketka;
-	QGridLayout		*gLayout;
+signals:
+	void addDef(QString desc, int hotKey, byte keypad, int code, bool good, bool butt, bool foto);
 };
